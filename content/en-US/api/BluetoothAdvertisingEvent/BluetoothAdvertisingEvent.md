@@ -33,21 +33,22 @@ This value can be null if the device did not advertise it.
 
 Returns an `unsigned short` containing the advertised Generic Access Profile
 (GAP) appearance of the Bluetooth device. The appearance value is composed of
-a 10-bit category and 6-bit sub-category value for specifying the external
+a 10 bit category and 6 bit sub-category value for specifying the external
 appearance of the device. This value can be null if the device did not
 advertise it.
 
 **`BluetoothAdvertisingEvent.txPower`**
 
-Returns a `byte` containing the transmission power in dBm at which the device is
-broadcasting advertisement packets. This value can be null if the device did not
-advertise it.
+Returns a `byte` containing the transmission power in decibel-milliwatts
+(dBm) at which the device is broadcasting advertisement packets. This value
+can be null if the device did not advertise it.
 
 **`BluetoothAdvertisingEvent.rssi`**
 
 Returns a `byte` containing the received signal strength indicator (RSSI), which
-is the power in dBm at which the advertisement was received. This value can
-be null if the adapter did not make this value available.
+is the power in decibel-milliwatts (dBm) at which the advertisement was
+received. This value can be null if the adapter did not make this value
+available.
 
 **`BluetoothAdvertisingEvent.manufacturerData`**
 
@@ -67,11 +68,28 @@ Creates a new `BluetoothAdvertisingEvent`.
 
 ## Examples
 
-The following example shows
+The following example shows how to listen for advertisement packets for a
+particular Bluetooth device.
 
 ```js
 let device = await navigator.bluetooth.requestDevice({acceptAllDevices: true});
 device.addEventListener('advertisementreceived', function(event) {
   console.log(`Received an advertisement packet for ${event.name}`);
 });
+await device.watchAdvertisements();
+```
+
+The following example shows how to listen for advertisement packets through the
+Web Bluetooth Scanning API.
+
+```js
+device.addEventListener('advertisementreceived', function(event) {
+  console.log(`Received an advertisement packet for ${event.name}`);
+  console.log('The device contains the following service UUIDs.');
+  for (let uuid of event.uuid) {
+    console.log(uuid);
+  }
+}
+let scan =
+    await navigator.bluetooth.requestLEScan({acceptAllAdvertisements: true});
 ```
