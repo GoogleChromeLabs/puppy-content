@@ -33,7 +33,7 @@ This value can be null if the device did not advertise it.
 
 Returns an `unsigned short` containing the advertised Generic Access Profile
 (GAP) appearance of the Bluetooth device. The appearance value is composed of
-a 10 bit category and 6 bit sub-category value for specifying the external
+a 10-bit category and 6-bit sub-category value for specifying the external
 appearance of the device. This value can be null if the device did not
 advertise it.
 
