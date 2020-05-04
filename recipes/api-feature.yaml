@@ -4,11 +4,11 @@ data:
   - mdn_url
 body:
   - data.interactive_example?
-  - prose.h2.description
-  - prose.h2.constructor
-  - prose.h2.properties
-  - prose.h3.eventhandlers
-  - prose.h2.methods
+  - prose.description
+  - prose.constructor
+  - prose.properties
+  - prose.eventhandlers
+  - prose.methods
   - prose.*
   - data.examples?
   - data.specifications

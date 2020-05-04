@@ -13,6 +13,12 @@ browser_compatibility: api.[[APIName]]
 
 The `[[APIName]]` interface of the [[SpecName]] provides
 
+## Constructor
+
+// Complete the sentence below or replace it with "None.".
+
+Creates a new `[[APIName]]` object.
+
 ## Properties
 
 // Copy the next two lines as needed for all properties on the interface.
@@ -22,7 +28,7 @@ The `[[APIName]]` interface of the [[SpecName]] provides
 
 Returns // Describe what the property returns.
 
-### Event handlers
+## Eventhandlers
 
 // Copy the next two lines as needed for all event handlers on the interface.
 // If there are none, delete this section.
@@ -43,14 +49,14 @@ called when // Describe what the event handler does.
 ## Examples
 
 // Optional - Provide a brief code example showing the use of the interface.
-//            Code samples from explainers or specs often work well for this.
+// Code samples from explainers or specs often work well for this.
 
-//            Note: code examples are not applications. If you have never created
-//            a code example before you can skip this section. If you skip this
-//            section, please delete it.)
+// Note: code examples are not applications. If you have never created
+// a code example before you can skip this section. If you skip this
+// section, please delete it.)
 
-The following example shows 
+The following example shows
 
 ```js
-// 
+//
 ```
