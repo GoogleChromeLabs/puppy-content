@@ -3,7 +3,7 @@ recipe: api-feature
 title: 'LargestContentfulPaint'
 mdn_url: /en-US/docs/Web/API/LargestContentfulPaint
 specifications: https://wicg.github.io/largest-contentful-paint/#sec-largest-contentful-paint-interface
-browser_compatibility: api.[[APIName]]
+browser_compatibility: api.LargestContentfulPaint
 ---
 
 ## Description
