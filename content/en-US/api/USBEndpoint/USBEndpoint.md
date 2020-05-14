@@ -8,7 +8,7 @@ browser_compatibility: api.USBEndpoint
 
 ## Description
 
-The `USBEndpoint` interface of the WebUSB API provides information about an endpoint provided by the USB device. An endpoint represents a unidirectional data stream into or out of the device. Endpoints come in three flavors,
+The `USBEndpoint` interface of the WebUSB API provides information about an endpoint provided by the USB device. An endpoint represents a unidirectional data stream into or out of the device.
 
 ## Constructor
 
@@ -41,7 +41,9 @@ Returns the size of the packets that data sent through this endpoint will be div
 
 ## Examples
 
-While sometimes the developer knows ahead of time the exact layout of a device's endpoints there are cases where this must be discovered at runtime. For example, a USB serial device must provide bulk input and output endpoints but their endpoint numbers are not defined. This code will identify the correct endpoints.
+While sometimes the developer knows ahead of time the exact layout of a device's endpoints there are cases where this must be discovered at runtime. For example, a USB serial device must provide bulk input and output endpoints but their endpoint numbers will depend on what other interfaces the device provides.
+
+This code identifies the correct endpoints by searching for the interface implementing the USB CDC interface class and then identifying the candidate endpoints based on their type and direction.
 
 ```js
 let inEndpoint = undefined;
