@@ -25,7 +25,7 @@ Returns this endpoint's "endpoint number" which is a value from 1 to 15 extracte
 Returns the direction in which this endpoint transfers data, one of:
 
 * `"in"` - Data is transferred from device to host.
-* `"out"` - data is transferred from host to device.
+* `"out"` - Data is transferred from host to device.
 
 **`USBEndpoint.type`**
 
