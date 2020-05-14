@@ -22,22 +22,22 @@ Returns this endpoint's "endpoint number" which is a value from 1 to 15 extracte
 
 **`USBEndpoint.direction`**
 
-Returns the direction in which this endpoint transfers data. One of,
+Returns the direction in which this endpoint transfers data, one of:
 
-* `"in"` - data is transferred from device to host
-* `"out` - data is transferred from host to device
+* `"in"` - Data is transferred from device to host.
+* `"out"` - data is transferred from host to device.
 
 **`USBEndpoint.type`**
 
-Returns the type of this endpoint. One of,
+Returns the type of this endpoint, one of:
 
-* `"bulk"` - Bulk endpoints provide reliable data transfer for large payloads. Data send through a bulk endpoint is guaranteed to be delivered or generate an error but may be preempted by other data traffic.
-* `"interrupt"` - Interrupt endpoints provide reliable data transfer for small payloads. Data sent through an interrupt endpoint is guaranteed to be delivered or generate an error and is also given dedicated bus time for transmission.
-* `"isochronous'` - Isochronous endpoints provide unreliable data transfer for payloads that must be delivered periodically. They are given dedicated bus time but if a deadline is missed the data is dropped.
+* `"bulk"` - Provides reliable data transfer for large payloads. Data sent through a bulk endpoint is guaranteed to be delivered or generate an error but may be preempted by other data traffic.
+* `"interrupt"` - Provides reliable data transfer for small payloads. Data sent through an interrupt endpoint is guaranteed to be delivered or generate an error and is also given dedicated bus time for transmission.
+* `"isochronous'` - Provides unreliable data transfer for payloads that must be delivered periodically. They are given dedicated bus time but if a deadline is missed the data is dropped.
 
 **`USBEndpoint.packetSize`**
 
-Returns the size of the packets data sent through this endpoint will be divided into.
+Returns the size of the packets that data sent through this endpoint will be divided into.
 
 ## Examples
 
