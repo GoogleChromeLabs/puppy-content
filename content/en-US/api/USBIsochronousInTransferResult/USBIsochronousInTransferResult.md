@@ -8,7 +8,7 @@ browser_compatibility: api.USBIsochronousInTransferResult
 
 ## Description
 
-The `USBIsochronousInTransferPacket` interface of the WebUSB API provides the result from a call to the `isochronousTransferIn()` method of the `USBDevice` interface. It represents the result from requesting a transfer of data from the USB device to the USB host.
+The `USBIsochronousInTransferResult` interface of the WebUSB API provides the result from a call to the `isochronousTransferIn()` method of the `USBDevice` interface. It represents the result from requesting a transfer of data from the USB device to the USB host.
 
 ## Constructor
 
@@ -16,9 +16,10 @@ Creates a new `USBIsochronousInTransferResult` object with the provided `packets
 
 ## Properties
 
-// Copy the next two lines as needed for all properties on the interface.
-// If there are none, delete this section.
+**`USBIsochronousInTransferResult.data`**
 
-**`USBIsochronousInTransferResult.[[propertyName]]`**
+Returns a `DataView` over the buffer into which data from the device was written. This is the combined data from all packets. See the individual `DataView`s in the `packets` array for the portion of this buffer containing data from each packet.
 
-Returns // Describe what the property returns.
+**`USBIsochronousInTransferResult.packets`**
+
+Returns an array of `USBIsochronousInTransferPacket`s containing the result of each request to receive a packet from the device.
