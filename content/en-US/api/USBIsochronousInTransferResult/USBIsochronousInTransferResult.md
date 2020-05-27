@@ -18,8 +18,8 @@ Creates a new `USBIsochronousInTransferResult` object with the provided `packets
 
 **`USBIsochronousInTransferResult.data`**
 
-Returns a `DataView` over the buffer into which data from the device was written. This is the combined data from all packets. See the individual `DataView`s in the `packets` array for the portion of this buffer containing data from each packet.
+Returns a `DataView` object containing the data received from the device. This is the combined data from all packets. See the individual `DataView` objects in the `packets` array for the portion of this buffer containing data from each packet.
 
 **`USBIsochronousInTransferResult.packets`**
 
-Returns an array of `USBIsochronousInTransferPacket`s containing the result of each request to receive a packet from the device.
+Returns an array of `USBIsochronousInTransferPacket` objects containing the result of each request to receive a packet from the device.

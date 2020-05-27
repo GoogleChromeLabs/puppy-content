@@ -18,4 +18,4 @@ Creates a new `USBIsochronousOutTransferResult` object with the provided `packet
 
 **`USBIsochronousOutTransferResult.packets`**
 
-Returns an array of `USBIsochronousOutTransferPacket`s containing the result of each request to send a packet to the device.
+Returns an array of `USBIsochronousOutTransferPacket` objects containing the result of each request to send a packet to the device.

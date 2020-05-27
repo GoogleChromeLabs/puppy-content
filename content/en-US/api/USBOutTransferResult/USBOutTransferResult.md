@@ -25,4 +25,4 @@ Returns the number of bytes from the transfer request that were sent to the devi
 Returns the status of the transfer request, one of:
 
 * `"ok"` - The transfer was successful.
-* `"stall"` - The device indicated an error by generating a stall condition on the endpoint. A stall on the control endpoint does not need to be cleared. For other pipes a call to `clearHalt()` is required before `transferOut()` can be called again.
+* `"stall"` - The device indicated an error by generating a stall condition on the endpoint. A stall on a bulk or interrupt endpoint must be cleared by calling `clearHalt()` before `transferOut()` can be called again.

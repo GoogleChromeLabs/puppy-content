@@ -18,7 +18,7 @@ Creates a new `USBIsochronousInTransferPacket` object with the provided `status`
 
 **`USBIsochronousInTransferPacket.data`**
 
-Returns a `DataView` over the data returned from the USB device in this packet, if any.
+Returns a `DataView` object containing the data received from the USB device in this packet, if any.
 
 **`USBIsochronousInTransferPacket.status`**
 
