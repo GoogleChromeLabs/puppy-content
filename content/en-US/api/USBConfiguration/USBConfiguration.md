@@ -18,11 +18,11 @@ Creates a new `USBConfiguration` object which will be populated with information
 
 **`USBConfiguration.configurationValue`**
 
-Returns the configuration value of this configuration. This is equal to the `bConfigurationValue` field of the configuration descriptor provided by the device defining this configuration.
+Returns the configuration value of this configuration. This is equal to the [`bConfigurationValue`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors) field of the configuration descriptor provided by the device defining this configuration.
 
 **`USBConfiguration.configurationName`**
 
-Returns the name provided by the device to describe this configuration. This is equal to the value of the string descriptor with the index provided in the `iConfiguration` field of the configuration descriptor defining this configuration.
+Returns the name provided by the device to describe this configuration. This is equal to the value of the string descriptor with the index provided in the [`iConfiguration`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors) field of the configuration descriptor defining this configuration.
 
 **`USBConfiguration.interfaces`**
 
