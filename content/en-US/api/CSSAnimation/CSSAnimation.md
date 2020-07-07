@@ -1,14 +1,13 @@
 ---
-recipe: javascript-class
+recipe: api-feature
 title: 'CSSAnimation'
 mdn_url: /en-US/docs/Web/API/CSSAnimation
 specifications: https://drafts.csswg.org/css-animations-2/#the-CSSAnimation-interface
 browser_compatibility: api.CSSAnimation
-examples:
 
 ---
 
-## Short Description
+## Description
 
 The `CSSAnimation` interface of the [CSS Animations Level
 2](https://drafts.csswg.org/css-animations-2/) represents a CSS animation as an
