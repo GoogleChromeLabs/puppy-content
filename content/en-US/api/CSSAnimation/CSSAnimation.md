@@ -35,7 +35,9 @@ of this class may be obtained via
 Returns the value of the `'animation-name'` property that created the CSS
 animation and caused this object to be generated.
 
+## Methods
 
+__No specific methods; inherits methods from its ancestor, {{domxref('Animation')}}.__
 ## Examples
 
 The following example first creates a CSS animation by updating the specified
