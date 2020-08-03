@@ -9,7 +9,8 @@ browser_compatibility: api.[[PeriodicSyncManager]]
 ## Description
 
 The `[[PeriodicSyncManager]]` interface of [[Web Periodic Background Sync]] provides a way to
-register a periodic background sync request.
+register tasks to be run in a service worker at periodic intervals with network connectivity. These
+tasks are referred to as periodic background sync requests.
 
 ## Constructor
 
@@ -35,11 +36,11 @@ that resolves when unregistration completes.
 
 ## Examples
 
-The following examples show how to use the interface.
+The following examples show how to use the interface. The code should live on the service worker
+client page.
 
 ### Requesting a periodic sync
 ```
-// index.html
   navigator.serviceWorker.ready.then(registration => {
     registration.periodicSync.getTags().then(tags => {
       if (tags.includes('get-latest-news'))
@@ -51,7 +52,6 @@ The following examples show how to use the interface.
 
 ### Checking if a periodic sync task with a given tag is registered
 ```
-// index.html
 navigator.serviceWorker.ready.then(registration => {
   registration.periodicSync.getTags().then(tags => {
     if (tags.includes('get-latest-news'))
@@ -62,7 +62,6 @@ navigator.serviceWorker.ready.then(registration => {
 
 # Removing a periodic sync to stop syncing articles in the background
 ```
-// index.html
 navigator.serviceWorker.ready.then(registration => {
   registration.periodicSync.unregister('get-latest-news');
 });
