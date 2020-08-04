@@ -12,8 +12,10 @@ browser_compatibility: api.[[PeriodicSyncEvent]]
 // You may add more sentences, if needed.
 
 The `[[PeriodicSyncEvent]]` interface of the [[Web Periodic Background Sync]] provides a way to
-run tasks in the service worker with network connectivity. The event is fired periodically after
-periodic background sync request is registered.
+run tasks in the service worker with network connectivity. An instance of this event is passed to
+the `ServiceWorkerGlobalScope.onperiodicsync` handler. This happens periodically, at an interval
+greater than or equal to that set in `PeriodicSyncManager.register()`. Other implementation-specific
+factors such as the user's engagement with the site decide the actual interval.
 
 ## Constructor
 
