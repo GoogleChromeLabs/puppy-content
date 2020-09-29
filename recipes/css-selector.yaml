@@ -4,13 +4,11 @@ data:
   - mdn_url
 body:
   - prose.short_description
-  - data.interactive_example?
   - prose.syntax
   - prose.description?
+  - data.permitted_properties?
   - prose.accessibility_concerns?
   - prose.*
-  - data.formal_definition
-  - data.formal_syntax
   - data.examples
   - data.specifications
   - data.browser_compatibility

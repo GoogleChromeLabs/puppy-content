@@ -9,8 +9,6 @@ body:
   - prose.description?
   - prose.accessibility_concerns?
   - prose.*
-  - data.formal_definition
-  - data.formal_syntax
   - data.examples
   - data.specifications
   - data.browser_compatibility

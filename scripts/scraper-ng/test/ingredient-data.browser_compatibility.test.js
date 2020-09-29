@@ -1,4 +1,8 @@
-const { process } = require("./framework/utils");
+const {
+  process,
+  expectPositionNode,
+  expectNullPosition,
+} = require("./framework/utils");
 
 describe("data.browser_compatibility", () => {
   const testRecipe = { body: ["data.browser_compatibility"] };
@@ -14,6 +18,7 @@ describe("data.browser_compatibility", () => {
 
     expect(file.messages).toStrictEqual([]);
     expect(file).not.hasMessageWithId(/expected-heading/);
+    expectPositionNode(file.data.ingredients[0], "data.browser_compatibility");
   });
 
   test("missing heading", () => {
@@ -21,6 +26,7 @@ describe("data.browser_compatibility", () => {
 
     expect(file.messages.length).toBe(1);
     expect(file).hasMessageWithId(/expected-heading/);
+    expectNullPosition(file.data.ingredients[0], "data.browser_compatibility");
   });
 
   test("missing compat macro", () => {
@@ -32,5 +38,6 @@ describe("data.browser_compatibility", () => {
 
     expect(file.messages.length).toBe(1);
     expect(file).hasMessageWithId(/expected-macro/);
+    expectNullPosition(file.data.ingredients[0], "data.browser_compatibility");
   });
 });

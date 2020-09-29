@@ -1,4 +1,8 @@
-const { process } = require("./framework/utils");
+const {
+  process,
+  expectPositionElement,
+  expectNullPosition,
+} = require("./framework/utils");
 
 const sources = {
   valid_single_simple: `<h2 id="Examples">Examples</h2>
@@ -38,7 +42,8 @@ const sources = {
 
   nodes_after_live_sample: `<h2 id="Examples">Examples</h2>
 <h3 id="An_example">An example</h3>
-  {{EmbedLiveSample("An_example")}}Some more content`,
+  {{EmbedLiveSample("An_example")}}
+  <p>Some more <em>emphatic</em> content</p>`,
 
   live_sample_id_mismatch: `<h2 id="Examples">Examples</h2>
 <h3 id="An_example">An example</h3>
@@ -54,12 +59,16 @@ describe("data.examples", () => {
     const file = process(sources.valid_single_simple, testRecipe);
 
     expect(file.messages).toStrictEqual([]);
+
+    expectPositionElement(file.data.ingredients[0], "data.examples", "h2");
   });
 
   test("valid multiple simple examples", () => {
     const file = process(sources.valid_multiple_simple, testRecipe);
 
     expect(file.messages).toStrictEqual([]);
+
+    expectPositionElement(file.data.ingredients[0], "data.examples", "h2");
   });
 
   test("valid multiple live samples", () => {
@@ -68,6 +77,8 @@ describe("data.examples", () => {
     expect(file.messages.length).toBe(2);
     expect(file.messages[0].ruleId).toBe("embedlivesample");
     expect(file.messages[1].ruleId).toBe("embedlivesample");
+
+    expectPositionElement(file.data.ingredients[0], "data.examples", "h2");
   });
 
   test("valid mixture of simple and live samples", () => {
@@ -75,6 +86,8 @@ describe("data.examples", () => {
 
     expect(file.messages.length).toBe(1);
     expect(file).hasMessageWithId(/embedlivesample/);
+
+    expectPositionElement(file.data.ingredients[0], "data.examples", "h2");
   });
 
   test("missing Examples H3", () => {
@@ -82,6 +95,8 @@ describe("data.examples", () => {
 
     expect(file.messages.length).toBe(1);
     expect(file).hasMessageWithId(/data.examples\/missing-example-h3/);
+
+    expectNullPosition(file.data.ingredients[0], "data.examples");
   });
 
   test("live sample is not final node", () => {
@@ -90,6 +105,8 @@ describe("data.examples", () => {
     expect(file.messages.length).toBe(2);
     expect(file).hasMessageWithId(/embedlivesample/);
     expect(file).hasMessageWithId(/data.examples\/nodes-after-live-sample/);
+
+    expectNullPosition(file.data.ingredients[0], "data.examples");
   });
 
   test("live sample ID mismatch", () => {
@@ -98,6 +115,8 @@ describe("data.examples", () => {
     expect(file.messages.length).toBe(2);
     expect(file).hasMessageWithId(/embedlivesample/);
     expect(file).hasMessageWithId(/data.examples\/embedlivesample-id-mismatch/);
+
+    expectNullPosition(file.data.ingredients[0], "data.examples");
   });
 
   test("missing heading", () => {
@@ -105,5 +124,7 @@ describe("data.examples", () => {
 
     expect(file.messages.length).toBe(1);
     expect(file).hasMessageWithId(/data.examples\/expected-heading/);
+
+    expectNullPosition(file.data.ingredients[0], "data.examples");
   });
 });
