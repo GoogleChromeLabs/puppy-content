@@ -40,7 +40,7 @@ else
 fi
 
 mkdir -p "$CREATION_PATH$API"
-cp ov-template.md "$CREATION_PATH$API"/"$API".md
+cp templates/interface.md "$CREATION_PATH$API"/"$API".md
 echo
 echo "Follow the instructions in that file then commit and push the result."
 echo

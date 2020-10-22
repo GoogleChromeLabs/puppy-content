@@ -1,30 +1,32 @@
 ---
-recipe: api-feature
-title: '[[APIName]]'
-mdn_url: /en-US/docs/Web/API/[[APIName]]
+recipe: api-interface
+title: '[[InterfaceName]]'
+mdn_url: /en-US/docs/Web/API/[[InterfaceName]]
 specifications: [[specURL]]#[[HeadingAnchor]]
-browser_compatibility: api.[[APIName]]
+browser_compatibility: api.[[InterfaceName]]
 ---
+
+// Example interface page at: https://developer.mozilla.org/en-US/docs/Web/API/ContentIndex
 
 ## Description
 
-// Complete the sentence below with basic description of the API.
-// You may add more sentences, if needed.
+// Complete the sentence below with a basic description of the API.
+// You may add more sentences if needed.
 
-The `[[APIName]]` interface of the [[SpecName]] provides
+The `[[InterfaceName]]` interface of the [[SpecName]] provides
 
 ## Constructor
 
 // Complete the sentence below or replace it with "None.".
 
-Creates a new `[[APIName]]` object.
+Creates a new `[[InterfaceName]]` object.
 
 ## Properties
 
 // Copy the next two lines as needed for all properties on the interface.
 // If there are none, delete this section.
 
-**`[[APIName]].[[propertyName]]`**
+**`[[InterfaceName]].[[propertyName]]`**
 
 Returns // Describe what the property returns.
 
@@ -33,7 +35,7 @@ Returns // Describe what the property returns.
 // Copy the next two lines as needed for all event handlers on the interface.
 // If there are none, delete this section.
 
-**`[[APIName]].[[eventHandlerName]]`**
+**`[[InterfaceName]].[[eventHandlerName]]`**
 
 called when // Describe what the event handler does.
 
@@ -42,20 +44,35 @@ called when // Describe what the event handler does.
 // Copy the next two lines as needed for all methods on the interface.
 // If there are none, delete this section.)
 
-**`[[APIName]].[[methodName]]()`**
+**`[[InterfaceName]].[[methodName]]()`**
 
 // Describe what the method does in a sentence fragment starting with a verb.
 
 ## Examples
 
-// Optional - Provide a brief code example showing the use of the interface.
+// Provide one or more code examples showing the use of the interface.
 // Code samples from explainers or specs often work well for this.
+// Each example should only illustrate one aspect of the interface's use. If you provide only one example, delete the subheadings.
 
 // Note: code examples are not applications. If you have never created
 // a code example before you can skip this section. If you skip this
 // section, please delete it.)
 
+// Replace this title with a descriptive one.
+
+### Example
+
 The following example shows
+
+```js
+//
+```
+
+// Replace this title with a descriptive one.
+
+### Example
+
+/The following example shows
 
 ```js
 //
