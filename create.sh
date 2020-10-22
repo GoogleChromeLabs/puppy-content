@@ -30,6 +30,7 @@ then
   git pull
   git checkout -b "$API"
   echo
+  echo "================================================================================"
   echo "A new branch has been created named $API with a template file"
   echo "at $CREATION_PATH$API/$API.md."
 else
