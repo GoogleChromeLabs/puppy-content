@@ -7,6 +7,7 @@ body:
   - data.interactive_example?
   - prose.syntax
   - prose.description?
+  - prose.values
   - prose.accessibility_concerns?
   - prose.*
   - data.formal_definition

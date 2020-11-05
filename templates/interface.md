@@ -56,7 +56,7 @@ called when // Describe what the event handler does.
 
 // Note: code examples are not applications. If you have never created
 // a code example before you can skip this section. If you skip this
-// section, please delete it.)
+// section, please delete it.
 
 // Replace this title with a descriptive one.
 
@@ -72,7 +72,7 @@ The following example shows
 
 ### Example
 
-/The following example shows
+The following example shows
 
 ```js
 //
