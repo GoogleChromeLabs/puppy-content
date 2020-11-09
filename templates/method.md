@@ -21,7 +21,7 @@ The `[[MethodName]]` method of the `[[InterfaceName]]` interface
 
 `[[InterfaceName]].[[MethodName]]`
 
-``[[InterfaceName]].[[MethodName]].then(...)`
+`[[InterfaceName]].[[MethodName]].then(...)`
 
 ### Parameters
 
