@@ -22,7 +22,8 @@ The `[[PropertyName]]` CSS property
 ## Syntax
 
 ```
-//
+// Show the property's syntax. Refer to the example page or to see how to
+// this: https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap#Syntax
 ```
 
 ### Values
