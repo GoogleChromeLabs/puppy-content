@@ -75,7 +75,7 @@ async function getOutputType() {
 async function resolveBranch() {
   branch = await git("status -sb",
     (stdout) => stdout.match(/## (.*)/)[1]);
-  if (branch.includes("ketchup")) {
+  if (branch.includes("puppy")) {
     branch = program.itemName;
     await git(`checkout -b ${branch}`);
     // console.log(`Pretending to create ${program.itemName} branch`);
@@ -94,7 +94,7 @@ async function resolveBranch() {
       console.log(`\nWork will be in your existing '${branch}' branch.\n`);
     } else {
       branch = program.itemName;
-      git(`checkout -b ${branch} ketchup`);
+      git(`checkout -b ${branch} puppy`);
       console.log(`\nWork will be in a new branch called '${branch}'.\n`);
     }
   }
