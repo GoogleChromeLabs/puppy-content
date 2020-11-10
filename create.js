@@ -25,15 +25,18 @@ const CANCEL = "(Cancel)";
 const CREATION_PATH='content/en-US';
 const API_PATH = `${CREATION_PATH}/api`;
 const CSS_PATH = `${CREATION_PATH}/css`;
-const TEMPLATE_PATH = "content/templates";
+const TEMPLATE_PATH = "templates";
 const TEMPLATES = {
-  "CSS": "css-property",
-  "Interface": "interace.md",
+  "CSS": "css-property.md",
+  "Interface": "interface.md",
   "Constructor": "constructor.md",
   "Event": "interface.md",
   "Method": "method.md",
   "Property": "property.md"
 }
+
+let branch;
+let outputType;
 
 const program = new Command();
 program
@@ -43,46 +46,56 @@ program
 run();
 
 async function run() {
+  printWelcome();
   program.parse(process.argv);
   const outputType = await getOutputType();
-  resolveBranch();
+  await resolveBranch();
   makeBoilerplate(outputType, program.itemName);
+}
+
+function printWelcome() {
+  console.clear();
+  console.log("=".repeat(80));
+  console.log(" ".repeat(30) + "Welcome to Page Creator" + " ".repeat(29));
+  console.log("=".repeat(80));
+  console.log();
 }
 
 async function getOutputType() {
   const prompt = new Select({
     name: 'outputType',
-    message: 'For which type of identifier do you need to create a page?',
+    message: 'What type of page do you want to create?',
     choices: ["CSS", "Interface", "Constructor", "Event", "Method", "Property", CANCEL]
   });
   let answer = await prompt.run();
-  console.log(answer);
   if (answer === CANCEL) { process.exit(); }
   return answer;
 }
 
 async function resolveBranch() {
-  let branch = await git("status -sb",
+  branch = await git("status -sb",
     (stdout) => stdout.match(/## (.*)/)[1]);
   if (branch.includes("ketchup")) {
-    branch = await git(`checkout -b ${program.itemName}`);
+    branch = program.itemName;
+    await git(`checkout -b ${branch}`);
     // console.log(`Pretending to create ${program.itemName} branch`);
-    console.log(`Work will be in a new branch called ${program.itemName}`);
+    console.log(`\nYour work is in a new branch called ${branch}.\n`);
     return;
   } else {
     let reuse;
     if (program.reuseBranch){
       reuse = program.reuseBranch;
     } else {
-      let prompt = `Do you want to use the new branch for ${program.itemName}?`;
-      prompt = `${prompt}\n\nUse the '-r' flag to avoid this question in the future.`
+      let prompt = `Do you want to use the ${branch} branch, created during the last run, for \n`;
+      prompt += `  ${program.itemName}? Use the '-r' flag to avoid this question in the future.`;
       reuse = await confirm(prompt);
     }
     if (reuse) {
       console.log(`\nWork will be in your existing '${branch}' branch.\n`);
     } else {
-      branch = await git(`checkout -b ${program.itemName} ketchup`);
-      console.log(`\nWork will be in a new branch called ${program.itemName}`);
+      branch = program.itemName;
+      git(`checkout -b ${branch} ketchup`);
+      console.log(`\nWork will be in a new branch called '${branch}'.\n`);
     }
   }
 }
@@ -101,13 +114,37 @@ async function confirm(msg, initial = "true") {
 
 function makeBoilerplate(type, name) {
   let outPath;
+  let templateName;
+  let msg;
   if (type === 'CSS') {
     outPath = makeFolder(CSS_PATH);
+    templateName = TEMPLATES[type];
+    fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
+    msg = `Page Creator has created a boilerplate at ${outPath}/${name}.md.\n\n`;
+  } else if (type === 'Event') {
+    outPath = makeFolder(API_PATH);
+    templateName = TEMPLATES[type];
+    fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
+    templateName = TEMPLATES['Method'];
+    fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/on${name}.md`);
+    msg = `Page Creator has created a boilerplate for the event at ${outPath}/${name}.md\n`
+    msg += `and a boilerplate or the event callback at ${outPath}/on${name}.md.\n`;
+    msg += `For each file:\n\n`;
   } else {
     outPath = makeFolder(API_PATH);
+    templateName = TEMPLATES[type];
+    fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
+    msg = `Page Creator has created a boilerplate at ${outPath}/${name}.md.\n\n`;
   }
-  const templateName = TEMPLATES[type];
-  fs.copyFileSync(`${TEMPLATE_PATH}\\${templateName}`, `${outPath}\\${name}.md`);
+  msg += `1. Open the file.\n`;
+  msg += `2. Replace square-bracketed [[tokens]] with the specified information.\n`;
+  msg += `3. Answer the required questions.\n`;
+  msg += `4. Commit all new files to the '${branch}' branch and push them to origin.\n`;
+  msg += `5. Open a browser and go to https://github.com/GoogleChromeLabs/stumptown-content.git.\n`;
+  msg += `6. Open a pull request against the default branch.\n\n`;
+  msg += `Developer Relations will review your submission within a week and request\n`;
+  msg += `changes, if needed.\n`;
+  console.log(msg);
 }
 
 
