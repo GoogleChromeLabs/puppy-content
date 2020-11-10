@@ -14,7 +14,8 @@
 
 'use strict';
 
-const git = require("git-promise");
+const fs = require('fs');
+const git = require('git-promise');
 
 const { Command } = require('commander');
 const { Confirm, Select } = require('enquirer');
@@ -23,8 +24,16 @@ const CANCEL = "(Cancel)";
 
 const CREATION_PATH='content/en-US';
 const API_PATH = `${CREATION_PATH}/api`;
-const CSS_PATH = `${CREATION_PATH}/css`
-
+const CSS_PATH = `${CREATION_PATH}/css`;
+const TEMPLATE_PATH = "content/templates";
+const TEMPLATES = {
+  "CSS": "css-property",
+  "Interface": "interace.md",
+  "Constructor": "constructor.md",
+  "Event": "interface.md",
+  "Method": "method.md",
+  "Property": "property.md"
+}
 
 const program = new Command();
 program
@@ -37,7 +46,7 @@ async function run() {
   program.parse(process.argv);
   const outputType = await getOutputType();
   resolveBranch();
-  makeTemplate();
+  makeBoilerplate(outputType, program.itemName);
 }
 
 async function getOutputType() {
@@ -90,6 +99,20 @@ async function confirm(msg, initial = "true") {
   return await prompt.run();
 }
 
-function makeTemplate() {
+function makeBoilerplate(type, name) {
+  let outPath;
+  if (type === 'CSS') {
+    outPath = makeFolder(CSS_PATH);
+  } else {
+    outPath = makeFolder(API_PATH);
+  }
+  const templateName = TEMPLATES[type];
+  fs.copyFileSync(`${TEMPLATE_PATH}\\${templateName}`, `${outPath}\\${name}.md`);
+}
 
+
+function makeFolder(dirName) {
+  if (fs.existsSync(dirName)) { return dirName; }
+  fs.mkdirSync(dirName);
+  return dirName;
 }
