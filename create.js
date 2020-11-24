@@ -139,10 +139,9 @@ function makeBoilerplate(type, name) {
   msg += `1. Open the file.\n`;
   msg += `2. Replace square-bracketed [[tokens]] with the specified information.\n`;
   msg += `3. Answer the questions in the file's.\n`;
-  msg += `4. Run 'npm run test' and correct identified errors.`;
-  msg += `5. Commit all new files to the '${branch}' branch and push them to origin.\n`;
-  msg += `6. Open a browser and go to https://github.com/GoogleChromeLabs/stumptown-content.git.\n`;
-  msg += `7. Open a pull request against the default branch.\n\n`;
+  msg += `4. Commit all new files to the '${branch}' branch and push them to origin.\n`;
+  msg += `5. Open a browser and go to https://github.com/GoogleChromeLabs/stumptown-content.git.\n`;
+  msg += `6. Open a pull request against the default branch.\n\n`;
   msg += `Developer Relations will review your submission within a week and request\n`;
   msg += `changes, if needed.\n`;
   console.log(msg);
