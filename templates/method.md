@@ -6,6 +6,9 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.[[InterfaceName]].[[MethodName]]
 ---
 
+**When this feature ships, the content below will live on MDN under
+[developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API).**
+
 // Example method page at: https://wiki.developer.mozilla.org/en-US/docs/Web/API/ContentIndex/add
 
 ## Description

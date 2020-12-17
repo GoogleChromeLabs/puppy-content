@@ -6,6 +6,9 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.[[PropertyName]]
 ---
 
+**When this feature ships, the content below will live on MDN under
+[developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API).**
+
 // Example CSS property page at: https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap
 
 ## Description
