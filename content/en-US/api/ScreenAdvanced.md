@@ -18,6 +18,7 @@ None.
 
 ## Properties
 
+_Inherits properties from its parent, `Screen`._
 **`ScreenAdvanced.left`**
 
 Returns the distance in pixels to the left edge of the screen from the primary screen origin.

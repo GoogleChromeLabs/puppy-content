@@ -8,8 +8,6 @@ browser_compatibility: api.Screens
 
 ## Description
 
-// Complete the sentence below with a basic description of the API.
-// You may add more sentences if needed.
 
 The `Screens` interface of the Window Placement API provides multi-screen information and change events.
 
