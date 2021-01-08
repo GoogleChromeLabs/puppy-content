@@ -56,8 +56,16 @@ The following example shows
 
 ### Example
 
+// Example for a boolean property.
+
+// Most booleans can be illustrated as simply as the boilerplate below.
+// You only need to provide more detail or a more complicated example if
+// the result expresses something more subtle. 
+
 The following example shows
 
 ```js
-//
+if ([[InterfaceInstance]].[[PropertyName]]) {
+  console.log([[Something relevant]]);
+}
 ```
