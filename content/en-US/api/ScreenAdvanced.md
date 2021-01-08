@@ -62,6 +62,7 @@ window.getScreens().then(
     console.log("Permission was granted");
 
     console.log("ID: " + screens.currentScreen.id);
+    console.log("Size: " + screens.currentScreen.width + " x " + screens.currentScreen.height);
     console.log("Position: " + screens.currentScreen.left + " x " + screens.currentScreen.top);
     console.log("Scale: " + screens.currentScreen.devicePixelRatio);
     console.log("Primary? " + screens.currentScreen.isPrimary);
@@ -89,6 +90,7 @@ window.getScreens().then(
 
     screens.screens.forEach(screen => {
       console.log("ID: " + screen.id);
+      console.log("  Size: " + screen.width + " x " + screen.height);
       console.log("  Position: " + screen.left + " x " + screen.top);
       console.log("  Scale: " + screen.devicePixelRatio);
       console.log("  Primary? " + screen.isPrimary);
