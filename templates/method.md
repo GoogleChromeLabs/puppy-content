@@ -19,9 +19,9 @@ The `[[MethodName]]` method of the `[[InterfaceName]]` interface
 
 // Delete the version that does not apply.
 
-`[[InterfaceName]].[[MethodName]]`
+`[[InterfaceName]].[[MethodName]]()`
 
-`[[InterfaceName]].[[MethodName]].then(...)`
+`[[InterfaceName]].[[MethodName]]().then(...)`
 
 ### Parameters
 
