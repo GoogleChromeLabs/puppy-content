@@ -1,6 +1,6 @@
 ---
 recipe: api-method
-title: 'getScreens'
+title: 'getScreens()'
 mdn_url: /en-US/docs/Web/API/Window/getScreens
 specifications: https://webscreens.github.io/window-placement/#dom-window-getscreens
 browser_compatibility: api.Window.getScreens
