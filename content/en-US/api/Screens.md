@@ -38,7 +38,8 @@ Called when `screens` or `currentScreen` changes.
 ### Logging the number of connected screens
 
 The following example shows how to count the number of connected screens,
-or log a warning if the permission is denied.
+or log a warning if the permission is denied. The `getScreens()` call
+may show a permission prompt if necessary.
 
 ```js
 if (screen.isExtended) {
@@ -56,7 +57,8 @@ if (screen.isExtended) {
 ### Detecting when screen properties change
 
 The following example logs a message if properties of the current
-screen or the set of available screens changes.
+screen or the set of available screens changes. This example
+assumes the permission was granted.
 
 ```js
 window.getScreens().then(
