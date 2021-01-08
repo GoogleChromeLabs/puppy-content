@@ -52,7 +52,8 @@ called when // Describe what the event handler does.
 
 // Provide one or more code examples showing the use of the interface.
 // Code samples from explainers or specs often work well for this.
-// Each example should only illustrate one aspect of the interface's use. If you provide only one example, delete the subheadings.
+// Each example should only illustrate one aspect of the interface's use. 
+// If you provide only one example, delete the subheadings.
 
 // Note: code examples are not applications. If you have never created
 // a code example before you can skip this section. If you skip this
