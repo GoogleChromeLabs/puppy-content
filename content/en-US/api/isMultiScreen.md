@@ -8,7 +8,7 @@ browser_compatibility: api.Window.isMultiScreen
 
 ## Description
 
-The `isMultiScreen` method of the `Window` interface returns whether the device has multiple connected screens on success. User agents can prompt for permission.
+The `isMultiScreen()` method of the `Window` interface returns whether the device has multiple connected screens on success. User agents can prompt for permission.
 
 ## Syntax
 
