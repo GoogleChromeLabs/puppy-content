@@ -12,7 +12,7 @@ The `isExtended` read-only property of the `Screen` interface returns true if th
 
 ## Syntax
 
-`var extended = screen.isExtended`
+`var _extended_ = screen.isExtended`
 
 ### Value
 

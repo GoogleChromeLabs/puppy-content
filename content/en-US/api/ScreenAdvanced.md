@@ -51,44 +51,37 @@ Returns an array of `PointerType` strings.
 ### Detailed information about the current screen
 
 The following example shows how to query the browser for more
-information about the current screen. If permission is granted, some
-information about the screen will be logged. If permission is not
-granted, a warning will be logged.
+information about the current screen. The example assumes that
+permission is granted.
 
 ```js
 
 window.getScreens().then(
   screens => {
-    console.log("Permission was granted");
-
-    console.log("ID: " + screens.currentScreen.id);
-    console.log("Size: " + screens.currentScreen.width + " x " + screens.currentScreen.height);
-    console.log("Position: " + screens.currentScreen.left + " x " + screens.currentScreen.top);
-    console.log("Scale: " + screens.currentScreen.devicePixelRatio);
-    console.log("Primary? " + screens.currentScreen.isPrimary);
-    console.log("Internal? " + screens.currentScreen.isInternal);
-    console.log("Touch? " + screens.currentScreen.pointerTypes.includes("touch"));
-  },
-
-  error => {
-    console.warn("Permission was denied");
+    var screen = screens.currentScreen;
+    console.log("ID: " + screen.id);
+    console.log("Size: " + screen.width + " x " + screen.height);
+    console.log("Position: " + screen.left + " x " + screen.top);
+    console.log("Scale: " + screen.devicePixelRatio);
+    console.log("Primary? " + screen.isPrimary);
+    console.log("Internal? " + screen.isInternal);
+    console.log("Touch? " + screen.pointerTypes.includes("touch"));
   }
 );
 ```
-### Detailed information about the all screens
+
+### Detailed information about the available screens
 
 The following example shows how to query the browser for more
-information about all available screens. If permission is granted,
-some information about each screen will be logged. If permission is
-not granted, a warning will be logged.
+information about all available screens. The example assumes that
+permission is granted.
 
 ```js
 
 window.getScreens().then(
   screens => {
-    console.log("Permission was granted");
-
-    screens.screens.forEach(screen => {
+    var availableScreens = screens.screens;
+    availableScreens.forEach(screen => {
       console.log("ID: " + screen.id);
       console.log("  Size: " + screen.width + " x " + screen.height);
       console.log("  Position: " + screen.left + " x " + screen.top);
@@ -97,10 +90,6 @@ window.getScreens().then(
       console.log("  Internal? " + screen.isInternal);
       console.log("  Touch? " + screen.pointerTypes.includes("touch"));
     });
-  },
-
-  error => {
-    console.warn("Permission was denied");
   }
 );
 ```
