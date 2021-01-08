@@ -22,7 +22,11 @@ None.
 
 Returns a {{jsxref('Promise')}} that resolves with a sequence of ScreenInfo objects.
 
+
 Each ScreenInfo object has the following properties:
+
+NOTE: This has changed to being `ScreenAdvanced` derived from `Screen` - this needs to change!
+
 
 <dl>
   <dt>`availWidth`
@@ -52,15 +56,15 @@ Each ScreenInfo object has the following properties:
   <dd>Top edge of the available screen area, e.g. 0
 
   <dt>`isPrimary`
-  <dd>True if this is the primary display.
-  <dt>`internal`
-  <dd>True if this is an internal or built-in display.
-  <dt>`scaleFactor`
-  <dd>The difference between logical and physical pixels, like devicePixelRatio.
+  <dd>If this screen is designated as the 'primary' screen by the OS.
+  <dt>`isInternal`
+  <dd>If this screen is an 'internal' screen, built into the device, like a laptop display.
+  <dt>`devicePixelRatio`
+  <dd>The ratio of this screen's resolution in physical pixels to its resolution in CSS pixels.
   <dt>`id`
   <dd>A temporary, generated per-origin unique ID; resets when cookies are deleted. Useful for persisting user window placements preferences for certain screens.
-  <dt>`touchSupport`
-  <dd>True if the screen supports touch input.
+  <dt>`pointerTypes`
+  <dd>The set of PointerTypes supported by the screen.
 </dl>
 
 ## Examples
@@ -82,8 +86,7 @@ window.getScreens().then(
     screens.forEach(screen => {
       console.log("Screen ID: " + screen.id);
       console.log("  primary?  " + screen.isPrimary);
-      console.log("  internal? " + screen.internal);
-      console.log("  touch?    " + screen.touchSupport);
+      console.log("  internal? " + screen.isInternal);
       console.log("  size:     " + screen.width + " x " + screen.height);
       console.log("  position: " + screen.left + " x " + screen.top);
     });
