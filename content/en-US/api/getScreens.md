@@ -20,7 +20,7 @@ None.
 
 ### Return value
 
-Returns a {{jsxref('Promise')}} that resolves with a `Screens` object.
+Returns a `Promise` that resolves with a `Screens` object.
 
 ## Examples
 

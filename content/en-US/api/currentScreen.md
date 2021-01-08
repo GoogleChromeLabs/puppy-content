@@ -1,6 +1,6 @@
 ---
 recipe: api-interface
-title: 'Screens'
+title: 'Screens.currentScreen'
 mdn_url: /en-US/docs/Web/API/Screens/currentScreen
 specifications: https://webscreens.github.io/window-placement/#dom-screens-currentscreen
 browser_compatibility: api.Screens.currentScreen

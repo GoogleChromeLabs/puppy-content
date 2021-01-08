@@ -1,6 +1,6 @@
 ---
 recipe: api-interface
-title: 'Screens'
+title: 'Screens.screens'
 mdn_url: /en-US/docs/Web/API/Screens/screens
 specifications: https://webscreens.github.io/window-placement/#dom-screens-screens
 browser_compatibility: api.Screens.screens
