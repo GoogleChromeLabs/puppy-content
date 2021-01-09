@@ -19,6 +19,8 @@ const git = require('git-promise');
 
 const { Command } = require('commander');
 const { Confirm, Select } = require('enquirer');
+const { platform } = require('os');
+const { createPrivateKey } = require('crypto');
 
 const CANCEL = "(Cancel)";
 
@@ -58,6 +60,13 @@ function printWelcome() {
   console.log("=".repeat(80));
   console.log(" ".repeat(30) + "Welcome to Page Creator" + " ".repeat(29));
   console.log("=".repeat(80));
+  console.log();
+  let welcomeMessage = `Thank you for helping document the web platform. What you will create is part\n`;
+  welcomeMessage += `off a reference site. It's more like a dictionary than a how-to guide. It\n`;
+  welcomeMessage += `requires consistency for the sake of being quickly and easily scanable and\n`;
+  welcomeMessage += `Please don't get creative. If you need to do something not covered by the\n`;
+  welcomeMessage += `provided instructions, please post a message to chrome-puppy-discuss@.`;
+  console.log(welcomeMessage);
   console.log();
 }
 
@@ -138,8 +147,9 @@ function makeBoilerplate(type, name) {
   }
   msg += `1. Open the file.\n`;
   msg += `2. Replace square-bracketed [[tokens]] with the specified information.\n`;
-  msg += `3. Answer the questions in the file's.\n`;
+  msg += `3. Answer the questions in the file.\n`;
   msg += `4. Commit all new files to the '${branch}' branch and push them to origin.\n`;
+  msg =+ `   Be sure not to include the package-lock.json.`
   msg += `5. Open a browser and go to https://github.com/GoogleChromeLabs/stumptown-content.git.\n`;
   msg += `6. Open a pull request against the default branch.\n\n`;
   msg += `Developer Relations will review your submission within a week and request\n`;

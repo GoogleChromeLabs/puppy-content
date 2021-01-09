@@ -1,10 +1,19 @@
 ---
 recipe: api-method
-title: '[[MethodName]]'
+title: '[[InterfaceName]].[[MethodName]]()'
 mdn_url: /en-US/docs/Web/API/[[InterfaceName]]/[[MethodName]]
 specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.[[InterfaceName]].[[MethodName]]
 ---
+
+// For newer or recently updated specs, the preferred heading anchor is one
+// beginning with 'dom'.
+
+// Please do the following:
+// 1. Replace all [[tokens]] with the specified information. Be sure to remove
+// the brackets.
+// 2. Answer all questions in comments.
+// 3. Remove all comments.
 
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API).**
@@ -22,9 +31,9 @@ The `[[MethodName]]` method of the `[[InterfaceName]]` interface
 
 // Delete the version that does not apply.
 
-`[[InterfaceName]].[[MethodName]]`
+`[[InterfaceName]].[[MethodName]]()`
 
-`[[InterfaceName]].[[MethodName]].then(...)`
+`var Promise = [[InterfaceName]].[[MethodName]]()`
 
 ### Parameters
 
@@ -46,7 +55,7 @@ The `[[MethodName]]` method of the `[[InterfaceName]]` interface
 
 Returns a [[ReturnType]].
 
-Returns a {{jsxref('Promise')}} that resolves with [[ResolveType]].
+Returns a Promise that resolves with [[ResolveType]].
 
 ### Exceptions
 
@@ -64,13 +73,18 @@ Returns a {{jsxref('Promise')}} that resolves with [[ResolveType]].
 
 ## Examples
 
-// Provide one or more code examples showing the use of the interface.
+// Provide one or more code examples showing the use of the method.
 // Code samples from explainers or specs often work well for this.
-// Each example should only illustrate one aspect of the interface's use. If you provide only one example, delete the subheadings.
+// When creatting the examples, keep the following in mind:
 
-// Note: code examples are not applications. If you have never created
-// a code example before you can skip this section. If you skip this
-// section, please delete it.
+// _ Each example should only illustrate one aspect of the interface's use.
+// _ If you provide only one example, delete the subheadings.
+// \* You may reuse examples from the parent interface page, if they're
+// appropriate.
+
+// Note: code examples are not applications. If you have never created a code
+// example before you may skip this section, but you are incouraged to ask
+// for help instead. If you skip this section, please delete it.
 
 // Replace this title with a descriptive one.
 

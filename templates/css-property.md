@@ -6,8 +6,14 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.[[PropertyName]]
 ---
 
+// Please do the following:
+// 1. Replace all [[tokens]] with the specified information. Be sure to remove
+// the brackets.
+// 2. Answer all questions in comments.
+// 3. Remove all comments.
+
 **When this feature ships, the content below will live on MDN under
-[developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API).**
+[developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/CSS).**
 
 // Example CSS property page at: https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap
 

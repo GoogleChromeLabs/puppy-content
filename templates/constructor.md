@@ -1,10 +1,19 @@
 ---
 recipe: api-constructor
-title: '[[InterfaceName]]'
+title: '[[InterfaceName]]()'
 mdn_url: /en-US/docs/Web/API/[[InterfaceName]]/[[InterfaceName]]
 specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.[[InterfaceName]].[[InterfaceName]]
 ---
+
+// For newer or recently updated specs, the preferred heading anchor is one
+// beginning with 'dom'.
+
+// Please do the following:
+// 1. Replace all [[tokens]] with the specified information. Be sure to remove
+// the brackets.
+// 2. Answer all questions in comments.
+// 3. Remove all comments.
 
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API).**
@@ -16,7 +25,7 @@ browser_compatibility: api.[[InterfaceName]].[[InterfaceName]]
 // Complete the sentence below with a verb followed by a basic description of the method.
 // You may add more sentences if needed.
 
-The `[[InterfaceName]]` constructor creates a new {{jsxref("[[InterfaceName]]")} object which
+The `[[InterfaceName]]` constructor creates a new [[InterfaceName]] object which
 
 ## Syntax
 
