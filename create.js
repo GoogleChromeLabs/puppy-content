@@ -32,7 +32,7 @@ const TEMPLATES = {
   "CSS": "css-property.md",
   "Interface": "interface.md",
   "Constructor": "constructor.md",
-  "Event": "interface.md",
+  "Event": "event.md",
   "Method": "method.md",
   "Property": "property.md"
 }
@@ -138,6 +138,7 @@ function makeBoilerplate(type, name) {
     fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/on${name}.md`);
     msg = `Page Creator has created a boilerplate for the event at ${outPath}/${name}.md\n`
     msg += `and a boilerplate or the event callback at ${outPath}/on${name}.md.\n`;
+    msg += `If your event callback takes an existing event type, delete ${outPath}/${name}.md/\n`;
     msg += `For each file:\n\n`;
   } else {
     outPath = makeFolder(API_PATH);
@@ -150,7 +151,7 @@ function makeBoilerplate(type, name) {
   msg += `3. Answer the questions in the file.\n`;
   msg += `4. Commit all new files to the '${branch}' branch and push them to origin.\n`;
   msg =+ `   Be sure not to include the package-lock.json.`
-  msg += `5. Open a browser and go to https://github.com/GoogleChromeLabs/stumptown-content.git.\n`;
+  msg += `5. Open a browser and go to https://github.com/GoogleChromeLabs/stumptown-content.git\n`;
   msg += `6. Open a pull request against the default branch.\n\n`;
   msg += `Developer Relations will review your submission within a week and request\n`;
   msg += `changes, if needed.\n`;

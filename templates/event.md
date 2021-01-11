@@ -1,10 +1,13 @@
 ---
 recipe: api-interface
-title: '[[InterfaceName]].[[PropertyName]]'
-mdn_url: /en-US/docs/Web/API/[[InterfaceName]]/[[PropertyName]]
+title: '[[EventName]]'
+mdn_url: /en-US/docs/Web/API/[[EventName]]
 specifications: [[specURL]]#[[HeadingAnchor]]
-browser_compatibility: api.[[InterfaceName]].[[PropertyName]]
+browser_compatibility: api.[[EventName]]
 ---
+
+// NOTE: If your event callback uses an existing event type you may delete
+// this page.
 
 // For newer or recently updated specs, the preferred heading anchor is one
 // beginning with 'dom'.
@@ -18,37 +21,45 @@ browser_compatibility: api.[[InterfaceName]].[[PropertyName]]
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API).**
 
-// Example property page at: https://developer.mozilla.org/en-US/docs/Web/API/ContentIndexEvent/id
+// Example interface page at: https://developer.mozilla.org/en-US/docs/Web/API/ContentIndex
 
 ## Description
 
-// Complete the sentence below with a basic description of the propertyt.
+// Complete the sentence below with a basic description of the API.
 // You may add more sentences if needed.
 
-// If this is not a read-only property, delete 'read-only' from the sentence below.
+The `[[EventName]]` interface of the [[SpecName]] provides
 
-The `[[PropertyName]]` read-only property of the `[[InterfaceName]]` interface returns
+// Remove the following line if this interface doesn't require a secure context.
+This interface requires a secure context.
 
-## Syntax
+## Constructor
 
-// Base the variable name on the property name. Leave the underscores (markdown
-// indicators for Italic text). Syntax descriptions are not code and MDN's standard
-// requires that developer-defined identifiers be in Italics.
+// Complete the sentence below or replace it with "None.".
 
-// Remove the second line if this is a read-only property.
+Creates a new `[[EventName]]` object.
 
-`var _varName_ = [[InterfaceName]].[[PropertyName]]`
-`[[InterfaceName]].[[PropertyName]] = _varName_`
+## Properties
 
-### Value
+// Copy the next two lines as needed for all properties on the interface.
+// If there are none, delete this section.
 
-// Replace '[[Type]]' with the return type.
+**`[[EventName]].[[propertyName]]`**
 
-A [[Type]].
+Returns // Describe what the property returns.
+
+## Methods
+
+// Copy the next two lines as needed for all methods on the interface.
+// If there are none, delete this section.)
+
+**`[[EventName]].[[methodName]]()`**
+
+// Describe what the method does in a sentence fragment starting with a verb.
 
 ## Examples
 
-// Provide one or more code examples showing the use of the property.
+// Provide one or more code examples showing the use of the interface.
 // Code samples from explainers or specs often work well for this.
 // When creatting the examples, keep the following in mind:
 
@@ -75,16 +86,8 @@ The following example shows
 
 ### Example
 
-// Example for a boolean property.
-
-// Most booleans can be illustrated as simply as the boilerplate below.
-// You only need to provide more detail or a more complicated example if
-// the result expresses something more subtle.
-
 The following example shows
 
 ```js
-if ([[InterfaceInstance]].[[PropertyName]]) {
-  console.log([[Something relevant]]);
-}
+//
 ```

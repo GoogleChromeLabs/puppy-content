@@ -45,14 +45,14 @@ Creates a new `[[InterfaceName]]` object.
 
 Returns // Describe what the property returns.
 
-## Eventhandlers
+## Events
 
 // Copy the next two lines as needed for all event handlers on the interface.
 // If there are none, delete this section.
 
 **`[[InterfaceName]].[[eventHandlerName]]`**
 
-called when // Describe what the event handler does.
+Called when // Describe what the event handler does.
 
 ## Methods
 
