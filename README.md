@@ -6,6 +6,10 @@ Chrome is so robust at creating new web platform features that we have exceeded 
 
 If you're implementing a new spec, there's no one more qualified than you to provide an MVP reference sheet and there's no one who can do it faster. 
 
+## Access the repo
+
+Send an email to jmedley@ requesting access to the Puppy Content repo. This activity is somewhat asynchronous, but must be completed before your first pull request.
+
 ## Install
 
 Before installing the puppy tool, install npm.
