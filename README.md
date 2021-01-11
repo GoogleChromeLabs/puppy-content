@@ -24,9 +24,9 @@ npm install
 
 The documentation produced in this stage will be minimal, focusing on accuracy and prioritizing a code example over document depth. Follow the instructions behind the appropriate link below. 
 
-*. [I am implementing one or more interfaces or events](./api-instructions.md).
+* [I am implementing one or more interfaces or events](./api-instructions.md).
 
-*. [I am adding an interface member such as an event callback, a method, or a property](./api-instructions.md).
+* [I am adding an interface member such as an event callback, a method, or a property](./api-instructions.md).
 
 ## I'm Preparing to Ship a Feature
 
