@@ -15,7 +15,7 @@ Before installing the puppy tool, install npm.
 Before contributing, you need to install the Puppy tool.
 
 ```git clone https://github.com/GoogleChromeLabs/puppy-content.git
-cd puppuy-content
+cd puppy-content
 git fetch --all
 npm install
 ```
