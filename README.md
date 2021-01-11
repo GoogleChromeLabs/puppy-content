@@ -1,75 +1,37 @@
 # puppy-content
 
-[![Build Status](https://travis-ci.org/mdn/stumptown-content.svg?branch=master)](https://travis-ci.org/mdn/stumptown-content)
+Imagine that you were a dog breeder and that you believed fervently that the world needed more dogs. They're our best friends, after all. The world is better with more of them. So you start breeding them as fast as you can. But instead of finding loving homes for them, you push them out the door to fend for themselves.
 
-## Overview
+Chrome is so robust at creating new web platform features that we have exceeded our capacity to document it. With a little help from you, we can stop doing this.
 
-This project aims to change the way we create and represent MDN's documentation. The idea is to maintain our documentation in GitHub, and to explicitly represent (and lint for) structure for the reference documentation, rather than just treating pages as unstructured blobs of HTML.
+If you're implementing a new spec, there's no one more qualified than you to provide an MVP reference sheet and there's no one who can do it faster. 
 
-In this model, people write documentation in a mixture of Markdown (for prose) and YAML (for data). There are rules about what a writer can and must include in the documentation for a given item, and the repository will enforce these rules in CI tests. For example, we might require that the documentation for every CSS property must include browser compatibility data. The ["writers' guide to stumptown" document](https://github.com/mdn/stumptown-content/blob/master/project-docs/stumptown-writers-guide.md) provides an informal overview of how documentation is written and maintained.
+## Install
 
-This repository also includes scripts that convert this documentation as-authored into a single JSON object for each item.
+Before installing the puppy tool, install npm.
 
-The most important consumer of this JSON would be the MDN website itself. The [stumptown-renderer](https://github.com/mdn/stumptown-renderer) repository is a prototype implementation of a new version of MDN powered by stumptown-content.
+`sudo apt-get install npm`
 
-But it's our intention to make the JSON available to other consumers too. Providing the content as structured JSON means that a consumer can reliably access particular pieces of the content. For example:
+Before contributing, you need to install the Puppy tool.
 
-- names and short descriptions for all the CSS properties
-- sets of executable examples
-- the specifications that define a particular item
-- the list of methods defined for a JavaScript object
+```git clone https://github.com/GoogleChromeLabs/puppy-content.git
+cd puppuy-content
+git fetch --all
+npm install```
 
-**Please note that at the moment we're still at an early and quite experimental stage.**
+## I'm Preparing for a Developer Trial or Origin Trial
 
-## Installation
+The documentation produced in this stage will be minimal, focusing on accuracy and prioritizing a code example over document depth. Follow the instructions behind the appropriate link below. 
 
-First [fork](https://help.github.com/en/articles/fork-a-repo) then [clone the repo on your machine](https://help.github.com/en/articles/cloning-a-repository-from-github).
+*. [I am implementing one or more interfaces or events](./api-instructions.md).
 
-```
-cd stumptown-content
-npm install
-```
+*. [I am adding an interface member such as an event callback, a method, or a property](./api-instructions.md).
 
-## Development
+## I'm Preparing to Ship a Feature
 
-### Linting content
+Do this procedure while you are preparing your feature for beta.
 
-Before building, run checks on the content first. To lint content, run:
-
-```sh
-npm run lint-md
-```
-
-Alternatively, to partially lint content, add arguments for one or more paths to the content to be linted. For example:
-
-```sh
-npm run lint-md content/html/reference/elements/abbr
-```
-
-### Building content
-
-Stumptown builds the content into JSON files (located under `/packaged`). In order to build all of the files, use:
-
-```sh
-npm run build-json <section>
-```
-
-For instance, if you want to build the HTML section documents, type:
-
-```sh
-npm run build-json html
-```
-
-### Validating content
-
-```sh
-npm test
-```
-
-## Refresh your fork
-
-Before sending a new pull request, please [refresh your fork and clone](https://help.github.com/en/articles/syncing-a-fork).
-
-## Public domain dedication
-
-The project code is dedicated to the public domain ([CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)). MDN prose content, found in the `content/` directory, is by Mozilla Contributors and is licensed under [CC-BY-SA 2.5](http://creativecommons.org/licenses/by-sa/2.5/). See [`content/LICENSE.md`](https://github.com/mdn/stumptown-content/blob/master/content/LICENSE.md) for details.
+1. If you did not create MVP documentation during an earlier stage, do so now by following the procedure above, but do not add them to your spec repo. 
+2. Notify Chrome Developer Relations that you are shipping your feature in an upcoming release of Chrome. We will work with you to publish a fuller documentation set on [MDN](https://developer.mozilla.org/en-US/docs/Web/Reference).
+3. Remove the MVP documentation from your spec repo. Duplicate documentation is hard to keep in sync and hence, and antipattern.
+4. Your responsibilities are officially complete (though we wouldn't complain if you helped us keep an eye on MDN).

@@ -1,7 +1,0 @@
-data:
-  - title
-  - short_title?
-  - mdn_url
-body:
-  - prose.description?
-  - data.link_lists

@@ -1,7 +1,0 @@
-# The recipe for guide pages doesn't specify anything in the body, because guide
-# pages are unstructured.
-data:
-  - title
-  - short_title?
-  - mdn_url
-body: []
