@@ -18,10 +18,14 @@ Here are the instructions for creating an interface page.
 3. Update the repo to get the latest changes.<br/>
    `git pull`
 
-4. To create a working branch and boilerplate page, run:<br/>
-   `npm run create -- -i `_`itemName`_<br/>
-   where _`itemName`_ is an interface, constructor, event, event callback, method, or property.<br/>
-   This creates a new branch named for the interface or event. Use the interface or event name exactly as it would appear in JavaScript. for example:<br/>
+4. To create a working branch and boilerplate page, run:
+
+   `npm run create -- -i `_`itemName`_
+   
+   where _`itemName`_ is an interface, constructor, event, event callback, method, or property.
+   
+   This creates a new branch named for the interface or event. Use the interface or event name exactly as it would appear in JavaScript. for example:
+   
    `npm run create -- -i ServiceWorker`
 
 1. Follow the on-screen instructions. If you need to refer to them later, they are roughly like this:
@@ -32,13 +36,15 @@ Here are the instructions for creating an interface page.
     
     1. Answer the questions in the file's comments.
     
-    1. If you are implementing a spec with multiple interfaces, repeat step 4 for each interface you are adding. To reuse the branch created in step 3, use the -r flag. For example:<br/>
-       `npm run create -- -i `_`interfaceName -r`_<br/>
+    1. If you are implementing a spec with multiple interfaces, repeat step 4 for each interface you are adding. To reuse the branch created in step 3, use the -r flag. For example:
+    
+       `npm run create -- -i `_`interfaceName -r`_
+       
        If you do not use the -r flag, commit your current branch before repeating.
 
 1. (Optional) If you want to help DevRel with the interfaces' subpages, rerun the script as many times as needed to create subpages for constructors, event callbacks, methods, and properties. We plan to make the sub pages for you; however we're not going to turn down any offer of help. 
 
-Do not do this if you your feature is in a developer trial or an origin trial.
+   Do not do this if you your feature is in a developer trial or an origin trial.
 
 1. Ensure that all your new files are committed and push your branches to origin.
 
