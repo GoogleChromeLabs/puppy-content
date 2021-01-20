@@ -11,9 +11,6 @@ browser_compatibility: api.SerialPort
 
 ## Description
 
-// Complete the sentence below with a basic description of the API.
-// You may add more sentences if needed.
-
 The `SerialPort` interface of the Web Serial API provides access to a serial
 port on the host device. Instances of this interface may be obtained by calling
 `navigator.serial.requestPort()` to request permission to access a port from the
