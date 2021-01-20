@@ -32,7 +32,7 @@ must grant the origin permission to access this device during a call to
 
 **`Serial.ondisconnect`**
 
-Called when the port has been connected to the device. This event is only fired
+Called when the port has been disconnected from the device. This event is only fired
 for ports associated with removable devices such as those connected via USB. The
 target of this event is the `SerialPort` interface that has been removed. The
 user must grant the origin permission to access this device during a call to
