@@ -11,6 +11,7 @@ browser_compatibility: api.ScreenAdvanced
 The `ScreenAdvanced` interface of the Window Placement API extends the
 `Screen` interface and provides additional per-screen information.
 
+The `ScreenAdvanced` interface is a child of `Screen` and inherits its members.
 
 ## Constructor
 
