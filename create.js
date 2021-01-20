@@ -29,12 +29,13 @@ const API_PATH = `${CREATION_PATH}/api`;
 const CSS_PATH = `${CREATION_PATH}/css`;
 const TEMPLATE_PATH = "templates";
 const TEMPLATES = {
-  "CSS": "css-property.md",
   "Interface": "interface.md",
   "Constructor": "constructor.md",
   "Event": "event.md",
   "Method": "method.md",
-  "Property": "property.md"
+  "Property": "property.md",
+  "CSS": "css-property.md",
+  "Header": "header.md"
 }
 
 let branch;
