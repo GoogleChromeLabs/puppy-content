@@ -15,7 +15,7 @@ The `SerialPort` interface of the Web Serial API provides access to a serial
 port on the host device. Instances of this interface may be obtained by calling
 `navigator.serial.requestPort()` to request permission to access a port from the
 user. Ports that an origin has already been granted permission to access are
-available from `navigator.serial.getPorts()` or by listening for `"connect"`
+available from `navigator.serial.getPorts()` or by listening for `connect`
 events fired at `navigator.serial`.
 
 This interface requires a secure context.
