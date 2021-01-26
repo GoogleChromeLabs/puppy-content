@@ -44,6 +44,10 @@ Returns ratio of this screen's resolution in physical pixels to its resolution i
 
 Returns a temporary, generated per-origin unique ID; resets when cookies are deleted.
 
+**`ScreenAdvanced.label`**
+
+Returns a user-friendly label string for the screen, determined by the user agent and OS.
+
 **`ScreenAdvanced.pointerTypes`**
 
 Returns an array of `PointerType` strings.
@@ -61,6 +65,7 @@ permission is granted.
 window.getScreens().then(
   screens => {
     var screen = screens.currentScreen;
+    console.log("Label: " + screen.label);
     console.log("ID: " + screen.id);
     console.log("Size: " + screen.width + " x " + screen.height);
     console.log("Position: " + screen.left + " x " + screen.top);
@@ -84,7 +89,8 @@ window.getScreens().then(
   screens => {
     var availableScreens = screens.screens;
     availableScreens.forEach(screen => {
-      console.log("ID: " + screen.id);
+      console.log("Label: " + screen.label);
+      console.log("  ID: " + screen.id);
       console.log("  Size: " + screen.width + " x " + screen.height);
       console.log("  Position: " + screen.left + " x " + screen.top);
       console.log("  Scale: " + screen.devicePixelRatio);

@@ -31,6 +31,8 @@ Returns a `ScreenAdvanced` object for the current screen.
 
 Called when `screens` or `currentScreen` changes.
 
+Note that this is not called on changes to the attributes of individual screens. `Screen.onchange` can be used to observe those changes.
+
 ## Examples
 
 ### Logging the number of connected screens
@@ -54,15 +56,33 @@ if (screen.isExtended) {
 
 ### Detecting when screen properties change
 
-The following example logs a message if properties of the current
-screen or the set of available screens changes. This example
-assumes the permission was granted.
+The following example logs a message if the set of available screens
+changes. This example assumes the permission was granted.
 
 ```js
 window.getScreens().then(
   screens => {
     screens.onchange = event => {
       console.log("screens changed");
+    };
+  }
+);
+```
+
+### Detecting when the current screen changes
+
+The following example logs a message if the current screen changes,
+such as when the window has moved to another screen.
+
+```js
+window.getScreens().then(
+  screens => {
+    let id = screens.currentScreen.id;
+    screens.onchange = event => {
+      if (id !== screens.currentScreen.id) {
+        console.log("current screen changed");
+        id = screens.currentScreen.id;
+      }
     };
   }
 );
