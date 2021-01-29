@@ -38,7 +38,8 @@ is not. This attribute will return `null` before `start()` is called.
 
 **`IdleDetector.onchange`**
 
-Called when the value of `userState` or `screenState` has changed.
+Called when the value of `userState` or `screenState` has changed. This method
+receives an `Event` object.
 
 ## Methods
 
