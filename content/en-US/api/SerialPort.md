@@ -44,17 +44,17 @@ non-null as long as the port is open and has not encountered a fatal error.
 
 **`SerialPort.onconnect`**
 
-Called when the port has been connected to the device. This event is only fired
-for ports associated with removable devices such as those connected via USB.
-This event bubbles to the instance of `navigator.serial` which returned this
-interface.
+Called when the port has been connected to the device. This method receives an
+`Event` object. This event is only fired for ports associated with removable
+devices such as those connected via USB. This event bubbles to the instance of
+`navigator.serial` which returned this interface.
 
 **`SerialPort.ondisconnect`**
 
-Called when the port has been connected to the device. This event is only fired
-for ports associated with removable devices such as those connected via USB.
-This event bubbles to the instance of `navigator.serial` which returned this
-interface.
+Called when the port has been disconnected from the device. This method receives
+an `Event` object. This event is only fired for ports associated with removable
+devices such as those connected via USB. This event bubbles to the instance of
+`navigator.serial` which returned this interface.
 
 ## Methods
 
@@ -65,7 +65,9 @@ of the port.
 
 **`SerialPort.open()`**
 
-Returns a `Promise` that resolves when the port has been opened.
+Returns a `Promise` that resolves when the port has been opened. By default the
+port will be opened with 8 data bits, 1 stop bit and no parity checking. The
+`baudRate` parameter is required.
 
 **`SerialPort.setSignals()`**
 
@@ -81,6 +83,22 @@ current state of the port's control signals.
 Returns a `Promise` that resolves when the port has been closed.
 
 ## Examples
+
+### Opening a port
+
+Before communicating on a serial port it must be opened. Opening the port allows
+the site to specify the necessary parameters which control how data is
+transmitted and received. Developers should check the documentation for the
+device they are connecting to for the appropriate parameters.
+
+```js
+await port.open({ baudRate: /* pick your baud rate */ });
+```
+
+Once the `Promise` returned by `open()` has resolved the `readable` and
+`writable` attributes can be accessed to get the `ReadableStream` and
+`WritableStream` instances for receiving data from and sending data to the
+connected device.
 
 ### Reading data from a port
 
