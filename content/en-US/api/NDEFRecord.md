@@ -101,7 +101,7 @@ await ndef.write({
 
 ### Read an external record with an NDEF message as payload
 
-External type records can be used to create application defined records. These
+Use external type records to create application defined records. These
 records may contain an NDEF message as payload, with its own NDEF records,
 including local types that are used in the context of the application.
 
@@ -113,7 +113,7 @@ data.
 
 This example shows how to read an external record for social posts, which
 contains an NDEF message, containing a text record and a record with the local
-type "act" (action), with definition borrowed from smart poster, but used in
+type "act" (action), with a definition borrowed from smart poster, but used in
 local application context.
 
 ```js

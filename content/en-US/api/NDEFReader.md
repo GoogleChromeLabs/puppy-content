@@ -123,7 +123,7 @@ try {
 
 ### Scheduling a write with a timeout
 
-It can sometimes be useful to set a time limit on a write operation. Like you
+It can sometimes be useful to set a time limit on a write operation. For example, you
 ask the user to touch a tag, and if no tag is found within a certain amount of
 time, then you time out.
 
@@ -156,7 +156,7 @@ try {
 
 ### Handle scanning errors
 
-This example shows what happens when scan promise rejects and `readingerror` is
+This example shows what happens when a scan promise rejects and `readingerror` is
 fired.
 
 ```js
