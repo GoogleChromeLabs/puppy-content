@@ -21,7 +21,8 @@ Before contributing, you need to install the Puppy tool.
 ```git clone https://github.com/GoogleChromeLabs/puppy-content.git
 cd puppy-content
 git fetch --all
-npm install```
+npm install
+```
 
 ## I'm Preparing for a Developer Trial or Origin Trial
 
