@@ -56,10 +56,10 @@ class _Generator {
 
   _makeInterface() {
     let interfaceText = this._sourcePage.interfaceText;
+    interfaceText = this.stripReaderComments(interfaceText);
     interfaceText = mi.render(interfaceText);
     const interfacePage = new HTMLPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
-    interfacePage.stripReaderComments();
     this._mdnPages.push(interfacePage);
   }
 
@@ -112,6 +112,12 @@ class _Generator {
     }
     return newList;
   }
+
+  stripReaderComments(content) {
+    const SHIPPING_NOTICE = /\*\*When this feature ships[^*]*\*\*/;
+    return content.replace(SHIPPING_NOTICE, '');
+  }
+
 }
 
 module.exports.Generator = _Generator;
