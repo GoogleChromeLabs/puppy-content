@@ -76,26 +76,26 @@ class _Generator {
   _makeEvents() {
     let eventText = this._sourcePage.events;
     if (!eventText) { return; }
-    const newPages = this._renderList(eventText);
+    const newPages = this._renderList(eventText, 'EventHandler');
     this._mdnPages.push(...newPages);
   }
 
   _makeMethods() {
     let methodText = this._sourcePage.methods;
     if (!methodText) { return; }
-    const newPages = this._renderList(methodText);
+    const newPages = this._renderList(methodText, 'method');
     this._mdnPages.push(...newPages);
   }
 
-  _renderList(listText) {
+  _renderList(listText, type) {
     let newMDNPage;
     let newMDNPages = [];
     const memberList = this._splitList(listText);
     for (let m of memberList) {
-      newMDNPage = new HTMLPage(m[0], 'eventhandler');
+      newMDNPage = new HTMLPage(m[0], type.toLowerCase());
       m[1] = mi.render(m[1]);
       newMDNPage.inject(m[1], 'Summary');
-      // this._mdnPages.push(newMDNPage);
+      newMDNPage.replaceVariable(`[[${type}]]`, newMDNPage.name);
       newMDNPages.push(newMDNPage);
     }
     return newMDNPages;
