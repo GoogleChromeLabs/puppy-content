@@ -82,6 +82,11 @@ class _HTMLPage {
     this._content = pieces.join("---");
   }
 
+  stripReaderComments() {
+    const SHIPPING_NOTICE = /\*\*When this feature ships[^*]*\*\*/;
+    this._content = this._content.replace(SHIPPING_NOTICE, '');
+  }
+
   write() {
     fs.mkdirSync(this.mdnDirPath, { recursive: true });
     fs.writeFileSync(this.mdnContentPath, this._content);

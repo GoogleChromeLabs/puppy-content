@@ -58,6 +58,7 @@ class _Generator {
     const interfaceText = this._sourcePage.interfaceText;
     const interfacePage = new HTMLPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
+    interfacePage.stripReaderComments();
     this._mdnPages.push(interfacePage);
   }
 
