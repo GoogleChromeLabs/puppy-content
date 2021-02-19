@@ -55,7 +55,8 @@ class _Generator {
   }
 
   _makeInterface() {
-    const interfaceText = this._sourcePage.interfaceText;
+    let interfaceText = this._sourcePage.interfaceText;
+    interfaceText = mi.render(interfaceText);
     const interfacePage = new HTMLPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
     interfacePage.stripReaderComments();
@@ -63,7 +64,7 @@ class _Generator {
   }
 
   _makeConstructor() {
-    const constructorText = this._sourcePage.constructorText;
+    let constructorText = this._sourcePage.constructorText;
     if (!constructorText) { return; }
     constructorText = `<p class="summary">${constructorText}</p>`
     constructorText = mi.render(constructorText);
@@ -73,14 +74,14 @@ class _Generator {
   }
 
   _makeEvents() {
-    const eventText = this._sourcePage.events;
+    let eventText = this._sourcePage.events;
     if (!eventText) { return; }
     const newPages = this._renderList(eventText);
     this._mdnPages.push(...newPages);
   }
 
   _makeMethods() {
-    const methodText = this._sourcePage.methods;
+    let methodText = this._sourcePage.methods;
     if (!methodText) { return; }
     const newPages = this._renderList(methodText);
     this._mdnPages.push(...newPages);
