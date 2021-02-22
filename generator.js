@@ -61,7 +61,7 @@ class _Generator {
     interfaceText = mi.render(interfaceText);
     const interfacePage = new HTMLPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
-    interfacePage.replaceVariable(`[[memberLink]]`, this._sourcePage.memberLink)
+    interfacePage.replaceString(`[[memberLink]]`, this._sourcePage.memberLink)
     this._mdnPages.push(interfacePage);
   }
 
@@ -104,7 +104,7 @@ class _Generator {
       newMDNPage = new HTMLPage(m[0], type.toLowerCase());
       m[1] = mi.render(m[1]);
       newMDNPage.inject(m[1], 'Summary');
-      newMDNPage.replaceVariable(`[[${type}]]`, newMDNPage.name);
+      newMDNPage.replaceString(`[[${type}]]`, newMDNPage.name);
       newMDNPages.push(newMDNPage);
     }
     return newMDNPages;
