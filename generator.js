@@ -38,6 +38,7 @@ class _Generator {
     this._makeConstructor();
     this._makeEvents();
     this._makeMethods();
+    this._makeProperties();
     this._replaceVariable('[[shared:interface]]', this._interfaceName);
     this._writeContent();
   }
@@ -60,6 +61,7 @@ class _Generator {
     interfaceText = mi.render(interfaceText);
     const interfacePage = new HTMLPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
+    interfacePage.replaceVariable(`[[memberLink]]`, this._sourcePage.memberLink)
     this._mdnPages.push(interfacePage);
   }
 
@@ -84,6 +86,13 @@ class _Generator {
     let methodText = this._sourcePage.methods;
     if (!methodText) { return; }
     const newPages = this._renderList(methodText, 'method');
+    this._mdnPages.push(...newPages);
+  }
+
+  _makeProperties() {
+    let propertyText = this._sourcePage.properties;
+    if (!propertyText) { return; }
+    const newPages = this._renderList(propertyText, 'property');
     this._mdnPages.push(...newPages);
   }
 

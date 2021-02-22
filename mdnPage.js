@@ -31,6 +31,14 @@ class _HTMLPage {
     this._name = name;
     this._type = type;
     this._content = HelperUtils.getTemplate(`${type}.html`);
+    this.replaceVariable(`[[shared:experimental]]`, '');
+  }
+
+  _stripTokens() {
+    const TOKENS = ['[[shared:experimental]]'];
+    for (let t of TOKENS) {
+      this._content.replace(t, '');
+    }
   }
 
   get mdnContentPath() {

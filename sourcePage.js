@@ -27,17 +27,33 @@ class _SourcePage {
     this._source = fs.readFileSync(sourcePath).toString();
     this._lines = this._source.split('\n');
     this._sections = this._source.split("## ");
-    this._meta;
+    this._memberLink;
+    this._bcdKey;
   }
 
-  get metaData() {
-    if (this._meta) { return this._meta; }
-    const first = this._lines.indexOf("---");
-    const last = this._lines.lastIndexOf("---");
+  get memberLink() {
+    if (this._memberLink) { return this._memberLink; }
+    this._processMetaData();
+    return this._memberLink;
+  }
+
+  get bcdKey() {
+    if (this._bcdKey) { return this._bcdKey; }
+    this._processMetaData();
+    return this._bcdKey;
+  }
+
+  _processMetaData() {
+    const first = this._lines.indexOf("---") + 1;
+    const last = this._lines.lastIndexOf("---") - 1;
     for (let i = first; i <= last; i++) {
-      this._meta.push(this._lines[i]);
+      if (this._lines[i].startsWith('specifications')) {
+        let piece = this._lines[i].split("#")[1].trim();
+        this._memberLink = `#${piece}`;
+      } else if (this._lines[i].startsWith('browser_compatibility')) {
+        this._bcdKey = this._lines[1].split(":")[1].trim();
+      }
     }
-    return this._meta;
   }
 
   get interfaceText() {
