@@ -34,13 +34,6 @@ class _HTMLPage {
     this.replaceVariable(`[[shared:experimental]]`, '');
   }
 
-  _stripTokens() {
-    const TOKENS = ['[[shared:experimental]]'];
-    for (let t of TOKENS) {
-      this._content.replace(t, '');
-    }
-  }
-
   get mdnContentPath() {
     return `${this.mdnDirPath}index.html`;
   }
