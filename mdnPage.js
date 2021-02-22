@@ -31,7 +31,7 @@ class _HTMLPage {
     this._name = name;
     this._type = type;
     this._content = HelperUtils.getTemplate(`${type}.html`);
-    this.replaceVariable(`[[shared:experimental]]`, '');
+    this.replaceString(`[[shared:experimental]]`, '');
   }
 
   get mdnContentPath() {
@@ -71,7 +71,7 @@ class _HTMLPage {
     this._content.replace(LOCATION_REGEXS[options.location], content);
   }
 
-  replaceVariable(variable, value) {
+  replaceString(variable, value) {
     while (this._content.includes(variable)) {
       this._content = this._content.replace(variable, value);
     }
@@ -83,8 +83,14 @@ class _HTMLPage {
     this._content = pieces.join("---");
   }
 
+  _cleanup() {
+    this.replaceString('pre><code class="language-js"', 'pre class="brush: js notranslate"');
+    this.replaceString('</code></pre>', '</pre>');
+  }
+
   write() {
     fs.mkdirSync(this.mdnDirPath, { recursive: true });
+    this._cleanup();
     fs.writeFileSync(this.mdnContentPath, this._content);
   }
 }
