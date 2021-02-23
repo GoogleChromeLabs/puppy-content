@@ -40,12 +40,12 @@ class _HTMLPage {
 
   get mdnDirPath() {
     let temp = this.name;
+    if (this._type === 'constructor') { temp = `${temp}/${temp}`; }
     temp = temp.replace('.', '/');
     temp = temp.replace('()', '');
     temp = temp.toLowerCase();
     let out = HelperUtils.resolveHome('$HOME/Desktop/out/');
     temp = `${out}${temp}`;
-    console.log(temp);
     return `${temp}/`;
   }
 
@@ -86,6 +86,7 @@ class _HTMLPage {
   _cleanup() {
     this.replaceString('pre><code class="language-js"', 'pre class="brush: js notranslate"');
     this.replaceString('</code></pre>', '</pre>');
+    // Use BCD to convert IDs to links. Only first instance.
   }
 
   write() {
