@@ -110,8 +110,7 @@ class _Generator {
       newMDNPage = new HTMLPage(m[0], type.toLowerCase());
       m[1] = mi.render(m[1]);
       newMDNPage.inject(m[1], 'Summary');
-      console.log(newMDNPage.name);
-      newMDNPage.replaceString(`[[${type}]]`, newMDNPage.name);
+      newMDNPage.replaceString(`[[${type}]]`, newMDNPage.shortName);
       const newLink = `#dom-${this._interfaceName.toLowerCase()}-${newMDNPage.shortName.toLowerCase()}`
       newMDNPage.replaceString(`[[memberLink]]`, newLink);
       newMDNPages.push(newMDNPage);
