@@ -45,7 +45,7 @@ class _Generator {
 
   _replaceVariable(variable, value) {
     for (let m of this._mdnPages) {
-      m.replaceVariable(variable, value);
+      m.replaceString(variable, value);
     }
   }
 
@@ -61,7 +61,11 @@ class _Generator {
     interfaceText = mi.render(interfaceText);
     const interfacePage = new HTMLPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
-    interfacePage.replaceString(`[[memberLink]]`, this._sourcePage.memberLink)
+    interfacePage.append(SPEC_TABLE);
+    interfacePage.append(COMPAT_TABLE);
+    // Need to insert spec and bcd sections.
+    const newLink = `#dom-${this._interfaceName.toLowerCase()}`
+    interfacePage.replaceString(`[[memberLink]]`, newLink);
     this._mdnPages.push(interfacePage);
   }
 
@@ -72,6 +76,8 @@ class _Generator {
     constructorText = mi.render(constructorText);
     const constructorPage = new HTMLPage(this._interfaceName, 'constructor');
     constructorPage.inject(constructorText, 'Summary');
+    const newLink = `#dom-${this._interfaceName.toLowerCase()}-constructor`;
+    constructorPage.replaceString(`[[memberLink]]`, newLink);
     this._mdnPages.push(constructorPage);
   }
 
@@ -104,7 +110,10 @@ class _Generator {
       newMDNPage = new HTMLPage(m[0], type.toLowerCase());
       m[1] = mi.render(m[1]);
       newMDNPage.inject(m[1], 'Summary');
+      console.log(newMDNPage.name);
       newMDNPage.replaceString(`[[${type}]]`, newMDNPage.name);
+      const newLink = `#dom-${this._interfaceName.toLowerCase()}-${newMDNPage.shortName.toLowerCase()}`
+      newMDNPage.replaceString(`[[memberLink]]`, newLink);
       newMDNPages.push(newMDNPage);
     }
     return newMDNPages;

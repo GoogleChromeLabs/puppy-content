@@ -29,6 +29,7 @@ const LOCATION_REGEXS = {
 class _HTMLPage {
   constructor(name, type) {
     this._name = name;
+    this._shortName;
     this._type = type;
     this._content = HelperUtils.getTemplate(`${type}.html`);
     this.replaceString(`[[shared:experimental]]`, '');
@@ -55,6 +56,16 @@ class _HTMLPage {
 
   set name(name) {
     this._name = name;
+  }
+
+  get shortName() {
+    if (this._shortName) { return this._shortName; }
+    if (!this._name.includes('.')) {
+      this._shortName = this._name;
+      return this._shortName;
+    }
+    this._shortName = this._name.split('.')[1];
+    return this._shortName;
   }
 
   append(content) {

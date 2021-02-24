@@ -89,6 +89,7 @@ class _SourcePage {
 
   _getSubSections(sectionName) {
     const section = this._getSection(sectionName);
+    if (!section) { return; }
     let parts = section.split('**`');
     parts.shift();
     return parts;
@@ -98,6 +99,7 @@ class _SourcePage {
     let rawSection = this._sections.find(s => {
       return s.startsWith(sectionName);
     });
+    if (!rawSection) { return null; }
     let result = rawSection.split(sectionName)[1].trim();
     if (result == 'None.') { return null; }
     return result;

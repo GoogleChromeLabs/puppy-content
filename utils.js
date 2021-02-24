@@ -21,7 +21,7 @@ const _COMPAT_TABLE = `<h2 id="Browser_compatibility">Browser compatibility</h2>
 
 <div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
 
-<p>{{Compat("[[Key]]")}}</p>`
+<p>{{Compat("api.[[shared:interface]]")}}</p>`
 
 const _HEADER_MACROS = '{{securecontext_header}}{{APIRef("")}}';
 
@@ -35,8 +35,8 @@ const _SPEC_TABLE = `<h2 id="Specifications">Specifications</h2>
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('[[SpecName]]','#[[Link]]','[[Member]]')}}</td>
-   <td>{{Spec2('[[SpecName]]')}}</td>
+   <td>{{SpecName('[[shared:mdnSpecName]]','[[memberLink]]','[[shared:interface]]')}}</td>
+   <td>{{Spec2('[[shared:mdnSpecName]]')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>
