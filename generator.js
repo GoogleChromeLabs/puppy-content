@@ -59,11 +59,11 @@ class _Generator {
     let interfaceText = this._sourcePage.interfaceText;
     interfaceText = this.stripReaderComments(interfaceText);
     interfaceText = mi.render(interfaceText);
+    // interfaceText = interfaceText.replaceAll('\n<', '\n\n<');
     const interfacePage = new HTMLPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
     interfacePage.append(SPEC_TABLE);
     interfacePage.append(COMPAT_TABLE);
-    // Need to insert spec and bcd sections.
     const newLink = `#dom-${this._interfaceName.toLowerCase()}`
     interfacePage.replaceString(`[[memberLink]]`, newLink);
     this._mdnPages.push(interfacePage);
