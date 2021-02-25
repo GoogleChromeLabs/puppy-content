@@ -19,8 +19,6 @@ const git = require('git-promise');
 
 const { Command } = require('commander');
 const { Confirm, Select } = require('enquirer');
-const { platform } = require('os');
-const { createPrivateKey } = require('crypto');
 
 const CANCEL = "(Cancel)";
 
@@ -39,7 +37,6 @@ const TEMPLATES = {
 }
 
 let branch;
-let outputType;
 
 const program = new Command();
 program
@@ -88,7 +85,6 @@ async function resolveBranch() {
   if (branch.includes("puppy")) {
     branch = program.itemName;
     await git(`checkout -b ${branch}`);
-    // console.log(`Pretending to create ${program.itemName} branch`);
     console.log(`\nYour work is in a new branch called ${branch}.\n`);
     return;
   } else {

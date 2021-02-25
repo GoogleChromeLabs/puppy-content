@@ -18,11 +18,6 @@
 process.env["NODE_CONFIG_DIR"] = `${__dirname}/node_modules/mdn-helper/config`;
 
 const { Generator } = require('./generator.js');
-const { COMPAT_TABLE,
-  HEADER_MACROS,
-  OUT_FOLDER,
-  SPEC_TABLE
-} = require('./utils.js');
 
 const sourceFile = process.argv[2];
 const generator = new Generator(sourceFile);

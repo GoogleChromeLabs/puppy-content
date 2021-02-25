@@ -15,7 +15,6 @@
 'use strict';
 
 const fs = require('fs');
-const { OUT_FOLDER } = require('./utils.js');
 
 class _SourcePage {
   constructor(sourcePath) {
