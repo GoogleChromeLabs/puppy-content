@@ -97,6 +97,7 @@ class _HTMLPage {
   _cleanup() {
     this.replaceString('pre><code class="language-js"', 'pre class="brush: js notranslate"');
     this.replaceString('</code></pre>', '</pre>');
+    this.replaceString('\n\[\[see-also\]\]\n', '');
     // Use BCD to convert IDs to links. Only first instance.
   }
 
