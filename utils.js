@@ -23,7 +23,7 @@ const _COMPAT_TABLE = `<h2 id="Browser_compatibility">Browser compatibility</h2>
 
 <p>{{Compat("api.[[shared:interface]]")}}</p>`
 
-const _HEADER_MACROS = '{{securecontext_header}}{{APIRef("")}}';
+const _HEADER_MACROS = '<div>{{securecontext_header}}{{APIRef("")}}</div>';
 
 const _SPEC_TABLE = `<h2 id="Specifications">Specifications</h2>
 

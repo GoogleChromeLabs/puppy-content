@@ -19,7 +19,7 @@ const MarkdownIt = require('markdown-it');
 
 const { HTMLPage } = require('./mdnPage.js');
 const { SourcePage } = require('./sourcePage.js');
-const { SPEC_TABLE, COMPAT_TABLE } = require('./utils.js');
+const { COMPAT_TABLE, HEADER_MACROS, SPEC_TABLE } = require('./utils.js');
 const { OUT } = require('mdn-helper/utils.js');
 
 const IN = `content/en-US/api/`;
@@ -59,6 +59,7 @@ class _Generator {
     let interfaceText = this._sourcePage.interfaceText;
     interfaceText = this.stripReaderComments(interfaceText);
     interfaceText = mi.render(interfaceText);
+    interfaceText = interfaceText.replace('---<', `---\n${HEADER_MACROS}\n\n<`);
     // interfaceText = interfaceText.replaceAll('\n<', '\n\n<');
     const interfacePage = new HTMLPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
