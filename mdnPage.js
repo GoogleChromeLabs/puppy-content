@@ -65,6 +65,7 @@ class _HTMLPage {
       return this._shortName;
     }
     this._shortName = this._name.split('.')[1];
+    this._shortName = this._shortName.split('(')[0];
     return this._shortName;
   }
 
