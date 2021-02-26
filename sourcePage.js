@@ -26,6 +26,9 @@ class _SourcePage {
     this._source = fs.readFileSync(sourcePath).toString();
     this._lines = this._source.split('\n');
     this._sections = this._source.split("## ");
+    this._events;
+    this._methods;
+    this._properties;
     this._memberLink;
     this._bcdKey;
   }
@@ -71,7 +74,9 @@ class _SourcePage {
   }
 
   get events() {
-    return this._getSubSections('Events');
+    if (this._events) { return this._events; }
+    this._events = this._getSubSections('Events');
+    return this._events;
   }
 
   get examples() {
@@ -79,11 +84,15 @@ class _SourcePage {
   }
 
   get methods() {
-    return this._getSubSections('Methods');
+    if (this._methods) { return this._methods; }
+    this._methods = this._getSubSections('Methods');
+    return this._methods;
   }
 
   get properties() {
-    return this._getSubSections('Properties');
+    if (this._properties) { return this._properties; }
+    this._properties =  this._getSubSections('Properties');
+    return this._properties;
   }
 
   _getSubSections(sectionName) {
