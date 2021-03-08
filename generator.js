@@ -17,6 +17,9 @@
 const MarkdownIt = require('markdown-it');
 
 const { HTMLPage } = require('./mdnPage.js');
+// const { InterfaceSet } = require('mdn-helper/interfaceset.js')
+// const { InterfaceCollection } = require('mdn-helper/interfacecollection.js');
+const { Finder } = require('mdn-helper/finder.js');
 const { SourcePage } = require('./sourcePage.js');
 const { COMPAT_TABLE, HEADER_MACROS, SPEC_TABLE } = require('./utils.js');
 
@@ -27,11 +30,15 @@ const mi = MarkdownIt({ html: true, linkify: true });
 class _Generator {
   constructor(source) {
     this._sourcePage = new SourcePage(`${IN}${source}`);
+    // const interfaces = new InterfaceCollection();
+    // this._IDL = interfaces.findExact(this._sourcePage.title, true, true);
+    const finder = new Finder(['Finder', this._sourcePage.title, '-f', '-o']);
+    this._IDL = finder.findAndReturn();
     this._mdnPages = [];
     this._interfaceName = source.split('.md')[0];
   }
 
-  generate(atRoot) {
+  generate() {
     this._makeInterface();
     this._makeConstructor();
     this._makeEvents();
@@ -51,6 +58,9 @@ class _Generator {
     for (let m of this._mdnPages) {
       m.write();
     }
+    const writePath = this._mdnPages[0].mdnDirPath;
+    const msg = `\nNew files written to:\n\t${writePath}`;
+    console.log(msg);
   }
 
   _makeInterface() {

@@ -33,27 +33,39 @@ class _SourcePage {
     this._bcdKey;
   }
 
-  get memberLink() {
-    if (this._memberLink) { return this._memberLink; }
-    this._processMetaData();
-    return this._memberLink;
-  }
-
   get bcdKey() {
     if (this._bcdKey) { return this._bcdKey; }
     this._processMetaData();
     return this._bcdKey;
   }
 
+  get memberLink() {
+    if (this._memberLink) { return this._memberLink; }
+    this._processMetaData();
+    return this._memberLink;
+  }
+
+  get title() {
+    if (this._title) { return this._title; }
+    this._processMetaData();
+    return this._title;
+  }
+
   _processMetaData() {
     const first = this._lines.indexOf("---") + 1;
     const last = this._lines.lastIndexOf("---") - 1;
+    let piece;
     for (let i = first; i <= last; i++) {
       if (this._lines[i].startsWith('specifications')) {
-        let piece = this._lines[i].split("#")[1].trim();
+        piece = this._lines[i].split("#")[1].trim();
         this._memberLink = `#${piece}`;
       } else if (this._lines[i].startsWith('browser_compatibility')) {
         this._bcdKey = this._lines[1].split(":")[1].trim();
+      } else if (this._lines[i].startsWith('title')) {
+        piece = this._lines[i].split(":")[1].trim();
+        if (piece.startsWith("'")) { piece = piece.substring(1); }
+        if (piece.endsWith("'")) { piece = piece.substring(0, (piece.length-1)); }
+        this._title = piece;
       }
     }
   }

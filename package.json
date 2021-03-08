@@ -20,6 +20,6 @@
         "enquirer": "^2.3.6",
         "git-promise": "^1.0.0",
         "markdown-it": "^12.0.4",
-        "mdn-helper": "git+https://github.com/jpmedley/mdn-helper.git"
+        "mdn-helper": "github:jpmedley/mdn-helper"
     }
 }
