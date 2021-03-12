@@ -47,3 +47,5 @@ wordSpacings.forEach(function (wordSpacing, index) {
 });
 ```
 
+## See also
+[CSS property word-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing)
