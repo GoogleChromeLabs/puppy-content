@@ -37,8 +37,8 @@ canvas.width = 1000;
 canvas.height = 500;
 const ctx = canvas.getContext('2d');
 document.body.appendChild(canvas);
-const letterSpacings = [-3, 0, 3];
-ctx.font = '36px serif';
+const letterSpacings = [-2, 0, 4];
+ctx.font = '20px serif';
 
 letterSpacings.forEach(function (letterSpacing, index) {
   ctx.textLetterSpacing = letterSpacing;
@@ -47,3 +47,5 @@ letterSpacings.forEach(function (letterSpacing, index) {
 });
 ```
 
+## See also
+[CSS property letter-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
