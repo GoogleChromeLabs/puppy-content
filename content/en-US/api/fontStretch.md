@@ -6,14 +6,13 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.CanvasRenderingContext2D.fontStretch
 ---
 
-
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textLetterSpacing](https://developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textLetterSpacing).**
 
 ## Description
 
 The `fontStretch` property of the `CanvasRenderingContext2D` interface
-allows the developers to select different face from a font. The default
+allows the developers to select different font-face from a font. The default
 value is `normal`.
 
 ## Syntax
@@ -31,7 +30,7 @@ value is `normal`.
 
 ### Value
 
-A `string` representing current `fontStretch` value. The possible font face values 
+A `string` representing current `fontStretch` value. The possible font-face values 
 are `"ultra-condensed"`, `"extra-condensed"`, `"condensed"`, `"semi-condensed"`, 
 `"normal"`, `"semi-expanded"`, `"expanded"`, `"extra-expanded"`, `"ultra-expanded"`.
 
@@ -46,7 +45,7 @@ canvas.height = 500;
 const ctx = canvas.getContext('2d');
 document.body.appendChild(canvas);
 
-// Set f1 to be the condensed font face of font test.
+// Set f1 to be the condensed font-face of font test.
 var f1 = new FontFace('test', 'url(/path/to/font1)');
 f1.stretch = "condensed";
 document.fonts.add(f);
@@ -54,7 +53,7 @@ document.fonts.add(f);
 var f2 = new FontFace('test', 'url(/path/to/font2');
 document.fonts.add(f2);
 
-//Since fontStretch is set to condensed, text shouls be shown in the font face f1.
+//Since fontStretch is set to condensed, text shouls be shown in the font-face f1.
 document.fonts.ready.then(() => {
     ctx.font = '25px test';
     ctx.fontStretch = "condensed";

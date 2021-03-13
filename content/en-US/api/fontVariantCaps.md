@@ -6,17 +6,16 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.CanvasRenderingContext2D.fontVariantCaps
 ---
 
-
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/fontVariantCaps](https://developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/fontVariantCaps).**
 
 ## Description
 
 The `fontVariantCaps` property of `CanvasRenderingContext2D` allows developers
-to control the use of alternate glyphs for capital letters. If multiple size 
+to control the use of alternate glyphs for capital letters. If multiple sizes 
 of capital letter glyphs are available for the chosen font, this 
-`CanvasRenderingContext2D` property choose the one with appropriate size; 
-otherwise, it syntheesizes small-caps by using uppercase glyphs. The default 
+`CanvasRenderingContext2D` property will choose the one with appropriate size. 
+Otherwise it synthesizes small-caps by using uppercase glyphs. The default 
 value is `normal`.
 
 
@@ -44,7 +43,7 @@ Enables display of small capitals for both upper and lowercase letters
 (OpenType features: `c2sc`, `smcp`).
 
 `"petite-caps"`
-Enables display of petite capitals (OpenType feature: `pcap`). petite-caps glyphs
+Enables display of petite capitals (OpenType feature: `pcap`). Petite-caps glyphs
 typically use the form of uppercase letters but are reduced to the size of
 lowercase letters.
 
@@ -66,7 +65,7 @@ are designed specifically for this situation.
 
 ### Example
 
-This example demonstrates the various `fontVariantCaps` property values.
+This example demonstrates the various `fontVariantCaps` property values:
 
 ```js
 const canvas = document.createElement('canvas');

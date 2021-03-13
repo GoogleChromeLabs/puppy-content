@@ -6,17 +6,16 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.CanvasRenderingContext2D.textWordSpacing
 ---
 
-
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textWordSpacing](https://developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textWordSpacing).**
 
 ## Description
 
 The `textWordSpacing` property of the `CanvasRenderingContext2D` interface
-returns a double which represents horizontal spacing behavior between text
-words. Setting `textWordSpacing` to postive values causes words to
-spread farther apart, while negative value brings them closer together.
-The default value is 0.
+returns a double which represents horizontal spacing between words. 
+Setting `textWordSpacing` to postive values spreads words further apart, 
+while negative values brings them closer together. The default value 
+is 0.
 
 ## Syntax
 
@@ -25,11 +24,11 @@ The default value is 0.
 
 ### Value
 
-A `double` representing horizontal spacing behavior between text words.
+A `double` representing horizontal spacing behavior between words.
 
 ### Example
 
-This example demonstrates the various `textWordSpacing` property values.
+This example demonstrates the various `textWordSpacing` property values:
 
 ```js
 const canvas = document.createElement('canvas');

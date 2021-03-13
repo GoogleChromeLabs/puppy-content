@@ -6,7 +6,6 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.CanvasRenderingContext2D.textRendering
 ---
 
-
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textRendering](https://developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textRendering).**
 
@@ -41,7 +40,7 @@ This enables kerning and optional ligatures.
 
 `"geometricPrecision"`
 The browser emphasizes geometric precision over rendering speed and legibility. 
-Certain aspects of fonts, don't scale linearly(ex: Kerning). Geometric Precision 
+Certain aspects of fonts, don't scale linearly(e.g. kerning). Geometric Precision 
 can make text using those fonts look good.
 
 Another usage of `geometricPrecision`is that it allows user to scale text
@@ -49,7 +48,7 @@ fluidly, it understands float value for font size.
 
 ### Example
 
-This example demonstrates the various `textRendering` property values.
+Example demonstrates the various `textRendering` property values:
 
 #### optimizespeed vs optimizelegibility
 ```js
@@ -97,7 +96,7 @@ ctx.fillText('LYoWAT - ff fi fl ffl', 20, 50);
 ctx.font = '29.5px serif';
 ctx.fillText('LYoWAT - ff fi fl ffl', 20, 100);
 ctx.font = '29px serif';
-ctx.fillText('LYoWAT - ff fi fl ffl', 20, 150);az
+ctx.fillText('LYoWAT - ff fi fl ffl', 20, 150);
 ```
 
 ## See also

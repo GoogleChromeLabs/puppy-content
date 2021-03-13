@@ -6,17 +6,15 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.CanvasRenderingContext2D.textLetterSpacing
 ---
 
-
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textLetterSpacing](https://developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textLetterSpacing).**
 
 ## Description
 
 The `textLetterSpacing` property of the `CanvasRenderingContext2D` interface
-returns a double which represents horizontal spacing behavior between text
-characters. Setting `textLetterSpacing` to postive values causes characters to
-spread farther apart, while negative value brings them closer together.
-The default value is 0.
+returns a double which represents horizontal spacing between characters. 
+Setting `textLetterSpacing` to postive values spreads characters further apart, 
+while negative values brings them closer together. The default value is 0.
 
 ## Syntax
 
@@ -25,11 +23,11 @@ The default value is 0.
 
 ### Value
 
-A `double` representing horizontal spacing behavior between text characters.
+A `double` representing horizontal spacing behavior between characters.
 
 ### Example
 
-This example demonstrates the various `TextLetterSpacing` property values.
+This example demonstrates the various `TextLetterSpacing` property values:
 
 ```js
 const canvas = document.createElement('canvas');

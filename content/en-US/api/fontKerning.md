@@ -6,22 +6,21 @@ specifications: [[specURL]]#[[HeadingAnchor]]
 browser_compatibility: api.CanvasRenderingContext2D.fontKerning
 ---
 
-
 **When this feature ships, the content below will live on MDN under
 [developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/fontKerning](https://developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/fontKerning).**
 
 ## Description
 
-The `fontKerning` property of the `CanvasRenderingContext2D` interface allows 
-the developers to set whether to use of the kerning information stored in a 
+The `fontKerning` property of the `CanvasRenderingContext2D` interface 
+allows developers to set whether to use the kerning information storedin a 
 font. Kerning defines how letters are spaced. In well-kerned fonts, this 
 feature makes character spacing more uniform and pleasant to read than it
 would otherwise be. 
 
-It's illustrated in the image below. The left image turns the kerning off and 
-the right image turns the kerning on. The default value is `"auto"`.
+This is illustrated in the image below. The top images turns the kerning off and 
+the bottom turns the kerning on. The default value is `"auto"`.
 
-![picture](font-kerning.png)
+![picture](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Kerning_EN.svg/1200px-Kerning_EN.svg.png)
 
 ## Syntax
 
@@ -46,7 +45,7 @@ Font kerning information stored in the font is disabled.
 
 ## Example
 
-This example demonstrates the various `TextLetterSpacing` property values.
+This example demonstrates the various `fontKerning` property values.
 
 ```js
 const canvas = document.createElement('canvas');
