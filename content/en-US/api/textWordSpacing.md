@@ -12,7 +12,7 @@ browser_compatibility: api.CanvasRenderingContext2D.textWordSpacing
 ## Description
 
 The `textWordSpacing` property of the `CanvasRenderingContext2D` interface
-returns a double which represents horizontal spacing between words. 
+returns a double that represents horizontal spacing between words.
 Setting `textWordSpacing` to postive values spreads words further apart, 
 while negative values brings them closer together. The default value 
 is 0.
@@ -24,7 +24,7 @@ is 0.
 
 ### Value
 
-A `double` representing horizontal spacing behavior between words.
+A double representing horizontal spacing behavior between words.
 
 ### Example
 

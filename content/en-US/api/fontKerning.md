@@ -12,36 +12,34 @@ browser_compatibility: api.CanvasRenderingContext2D.fontKerning
 ## Description
 
 The `fontKerning` property of the `CanvasRenderingContext2D` interface 
-allows developers to set whether to use the kerning information storedin a 
-font. Kerning defines how letters are spaced. In well-kerned fonts, this 
-feature makes character spacing more uniform and pleasant to read than it
-would otherwise be. 
+allows developers to set whether to use the kerning information stored in a
+font. Kerning defines how letters are spaced. In well-kerned fonts, this
+feature makes character spacing appear to be more uniform and pleasant to
+read than it would otherwise be.
 
-This is illustrated in the image below. The top images turns the kerning off and 
-the bottom turns the kerning on. The default value is `"auto"`.
+This is illustrated in the code below. The images alternate between turnsing
+the kerning on and off. The default value is `"auto"`.
 
-![picture](https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Kerning_EN.svg/1200px-Kerning_EN.svg.png)
 
 ## Syntax
 
-`CanvasRenderingContext2D.fontKerning = "auto" || "normal" || "none"`
-`var fontKerning = CanvasRenderingContext2D.fontKerning`
+`CanvasRenderingContext2D.fontKerning = fontKerning;`
+`var fontKerning = CanvasRenderingContext2D.fontKerning;`
 
 ### Value
 
 A `string` representing the current `fontKerning` value. Possible value are:
 
-#### Options
 `"auto"`
 The browser determines whether font kerning should be used or not. For example, 
 some browsers will disable kerning on small fonts, since applying it could harm the 
 readability of text.
 
 `"normal"`
-Font kerning information stored in the font must be applied.
+Applies font kerning information stored in the font.
 
 `"none"`
-Font kerning information stored in the font is disabled.
+Disables font kerning information stored in the font.
 
 ## Example
 

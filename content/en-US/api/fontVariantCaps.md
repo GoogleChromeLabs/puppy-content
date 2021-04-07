@@ -14,29 +14,26 @@ browser_compatibility: api.CanvasRenderingContext2D.fontVariantCaps
 The `fontVariantCaps` property of `CanvasRenderingContext2D` allows developers
 to control the use of alternate glyphs for capital letters. If multiple sizes 
 of capital letter glyphs are available for the chosen font, this 
-`CanvasRenderingContext2D` property will choose the one with appropriate size. 
-Otherwise it synthesizes small-caps by using uppercase glyphs. The default 
-value is `normal`.
+property will choose the one with appropriate size. Otherwise it synthesizes
+small-caps by adapting uppercase glyphs. The default value is `normal`.
 
 
 ## Syntax
 
-`CanvasRenderingContext2D.fontVariantCaps = "normal" || "small-caps" || "all-small-caps" || "petite-caps" || "all-petite-caps" || "unicase" || "titling-caps"`
-`var fontVariantCaps = CanvasRenderingContext2D.textRendering`
+`CanvasRenderingContext2D.fontVariantCaps = "fontVariantCaps";`
+`var fontVariantCaps = CanvasRenderingContext2D.fontVariantCaps;`
 
 ### Values
 
-A `string` representing current `fontVariantCaps` value. The possible values are:
-
-#### Options
+A `string` representing current the `fontVariantCaps` value. The possible values are:
 
 `"normal"`
 Deactivates of the use of alternate glyphs.
 
 `"small-caps"`
-Enables display of small capitals (OpenType feature: `smcp`). Small-caps glyphs
-typically use the form of uppercase letters but are reduced to the size of
-lowercase letters.
+Enables display of small capitals (OpenType feature: `smcp`). "Small-caps"
+glyphs typically use the form of uppercase letters but are reduced to the
+size of lowercase letters.
 
 `"all-small-caps"`
 Enables display of small capitals for both upper and lowercase letters 

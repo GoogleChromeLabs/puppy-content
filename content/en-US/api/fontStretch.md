@@ -7,32 +7,25 @@ browser_compatibility: api.CanvasRenderingContext2D.fontStretch
 ---
 
 **When this feature ships, the content below will live on MDN under
-[developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textLetterSpacing](https://developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/textLetterSpacing).**
+[developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/fontStretch](https://developer.mozilla.org/en-US/docs/Web/CanvasRenderingContext2D/fontStretch).**
 
 ## Description
 
 The `fontStretch` property of the `CanvasRenderingContext2D` interface
-allows the developers to select different font-face from a font. The default
+allows the developers to select a specific font-face from a font. The default
 value is `normal`.
 
 ## Syntax
 
-`CanvasRenderingContext2D.fontStretch = "ultra-condensed"`
-`CanvasRenderingContext2D.fontStretch = "extra-condensed"` 
-`CanvasRenderingContext2D.fontStretch = "condensed"`
-`CanvasRenderingContext2D.fontStretch = "semi-condensed"` 
-`CanvasRenderingContext2D.fontStretch = "normal"` 
-`CanvasRenderingContext2D.fontStretch = "semi-expanded"`
-`CanvasRenderingContext2D.fontStretch = "expanded"`
-`CanvasRenderingContext2D.fontStretch = "extra-expanded"`
-`CanvasRenderingContext2D.fontStretch = "ultra-expanded"`
-`var fontStretch = CanvasRenderingContext2D.fontStretch`
+`CanvasRenderingContext2D.fontStretch = fontStretch;`
+`var fontStretch = CanvasRenderingContext2D.fontStretch;`
 
 ### Value
 
 A `string` representing current `fontStretch` value. The possible font-face values 
 are `"ultra-condensed"`, `"extra-condensed"`, `"condensed"`, `"semi-condensed"`, 
-`"normal"`, `"semi-expanded"`, `"expanded"`, `"extra-expanded"`, `"ultra-expanded"`.
+`"normal"`, `"semi-expanded"`, `"expanded"`, `"extra-expanded"` and
+`"ultra-expanded"`.
 
 ## Example
 

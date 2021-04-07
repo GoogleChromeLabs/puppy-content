@@ -14,21 +14,17 @@ browser_compatibility: api.CanvasRenderingContext2D.textRendering
 The `textRendering` property of `CanvasRenderingContext2D` provides information
 to the rendering engine about what to optimize for when rendering text.
 
-The default value is `auto`, where the browser makes trade-offs among speed, 
-legibility, and geometric precision.
-
 ## Syntax
 
-`CanvasRenderingContext2D.textRendering = "auto" || "optimizeSpeed" || "optimizeLegibility" || "geometricPrecision"`
-`var textRendering = CanvasRenderingContext2D.textRendering`
+`CanvasRenderingContext2D.textRendering = "textRendering";`
+`var textRendering = CanvasRenderingContext2D.textRendering;`
 
 ### Value
-A `string` representing current `textRendering` value. The possible values are:
+A `string` representing the current `textRendering` value. The possible values are:
 
-#### Options
 `"auto"`
 The browser makes educated guesses about when to optimize for speed, legibility, 
-and geometric precision while drawing text. 
+and geometric precision while drawing text. This is the default value.
 
 `"optimizeSpeed"`
 The browser emphasizes rendering speed over legibility and geometric precision 
@@ -40,11 +36,9 @@ This enables kerning and optional ligatures.
 
 `"geometricPrecision"`
 The browser emphasizes geometric precision over rendering speed and legibility. 
-Certain aspects of fonts, don't scale linearly(e.g. kerning). Geometric Precision 
-can make text using those fonts look good.
-
-Another usage of `geometricPrecision`is that it allows user to scale text
-fluidly, it understands float value for font size.
+Certain aspects of fonts, don't scale linearly (e.g. kerning). Geometric Precision
+can make text using those fonts look good. This value also allows developers to
+scale text fluidly and it accepts float values for font size.
 
 ### Example
 
