@@ -2,7 +2,7 @@
 recipe: api-interface
 title: 'CanvasRenderingContext2D.textRendering'
 mdn_url: /en-US/docs/Web/API/CanvasRenderingContext2D/textRendering
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: https://html.spec.whatwg.org/#dom-context-2d-textrendering
 browser_compatibility: api.CanvasRenderingContext2D.textRendering
 ---
 

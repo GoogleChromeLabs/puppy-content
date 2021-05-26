@@ -2,7 +2,7 @@
 recipe: api-interface
 title: 'CanvasRenderingContext2D.textWordSpacing'
 mdn_url: /en-US/docs/Web/API/CanvasRenderingContext2D/textWordSpacing
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: https://html.spec.whatwg.org/#dom-context-2d-textwordspacing
 browser_compatibility: api.CanvasRenderingContext2D.textWordSpacing
 ---
 

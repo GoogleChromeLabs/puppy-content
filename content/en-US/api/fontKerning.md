@@ -2,7 +2,7 @@
 recipe: api-interface
 title: 'CanvasRenderingContext2D.fontKerning'
 mdn_url: /en-US/docs/Web/API/CanvasRenderingContext2D/fontKerning
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: https://html.spec.whatwg.org/#dom-context-2d-fontkerning
 browser_compatibility: api.CanvasRenderingContext2D.fontKerning
 ---
 

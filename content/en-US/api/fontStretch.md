@@ -2,7 +2,7 @@
 recipe: api-interface
 title: 'CanvasRenderingContext2D.fontStretch'
 mdn_url: /en-US/docs/Web/API/CanvasRenderingContext2D/fontStretch
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: https://html.spec.whatwg.org/#dom-context-2d-fontstretch
 browser_compatibility: api.CanvasRenderingContext2D.fontStretch
 ---
 

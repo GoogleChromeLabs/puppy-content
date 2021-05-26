@@ -2,7 +2,7 @@
 recipe: api-interface
 title: 'CanvasRenderingContext2D.fontVariantCaps'
 mdn_url: /en-US/docs/Web/API/CanvasRenderingContext2D/fontVariantCaps
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: https://html.spec.whatwg.org/#dom-context-2d-fontvariantcaps
 browser_compatibility: api.CanvasRenderingContext2D.fontVariantCaps
 ---
 
