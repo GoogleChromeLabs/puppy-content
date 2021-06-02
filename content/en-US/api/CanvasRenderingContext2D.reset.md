@@ -51,7 +51,7 @@ Drawing state consists of:
 
 `CanvasRenderingContext2D.reset();`
 
-### Example
+## Example
 
 ```js
 const defaultFillStyle = ctx.fillStyle; // "#000000"
@@ -108,4 +108,3 @@ ctx.fillText("I have been reset.", 10, 40); // Uses the default font.
 This will then give us the canvas:
 
 ![Reset canvas2d](../../data/reset-canvas2d.png)
-
