@@ -2,7 +2,7 @@
 recipe: api-interface
 title: 'CanvasRenderingContext2D.reset'
 mdn_url: /en-US/docs/Web/API/CanvasRenderingContext2D/reset
-specifications: [[https://html.spec.whatwg.org/multipage/canvas.html]]#[[dom-context-2d-reset]]
+specifications: https://html.spec.whatwg.org/multipage/canvas.html#dom-context-2d-reset
 browser_compatibility: api.CanvasRenderingContext2D.reset
 ---
 
