@@ -12,7 +12,7 @@ browser_compatibility: api.CanvasRenderingContext2D.textLetterSpacing
 ## Description
 
 The `textLetterSpacing` property of the `CanvasRenderingContext2D` interface
-returns a double which represents horizontal spacing between characters. 
+returns a double that represents horizontal spacing between characters. 
 Setting `textLetterSpacing` to postive values spreads characters further apart, 
 while negative values brings them closer together. The default value is 0.
 
