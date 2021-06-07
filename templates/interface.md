@@ -45,7 +45,7 @@ Creates a new `[[InterfaceName]]` object.
 
 Returns // Describe what the property returns.
 
-## Events
+## Event Handlers
 
 // Copy the next two lines as needed for all event handlers on the interface.
 // If there are none, delete this section.
