@@ -13,7 +13,7 @@ browser_compatibility: api.CanvasRenderingContext2D.reset
 ## Description
 
 The `reset()` method of the `CanvasRenderingContext2D` interface
-resets the rendering context to its default state. This includes setting the backing buffer to transparent black, clearing the saved state stack, clearing the default path and resetting the drawing state to its initial values.
+resets the rendering context to its default state. This includes setting the [output bitmap](https://html.spec.whatwg.org/multipage/canvas.html#output-bitmap) to transparent black, clearing the saved [state stack](https://html.spec.whatwg.org/multipage/canvas.html#the-canvas-state:canvasstate), clearing the [current default path](https://html.spec.whatwg.org/multipage/canvas.html#current-default-path) and resetting the drawing state to its initial values.
 
 Drawing state consists of:
  - The current transformation matrix.
