@@ -11,10 +11,9 @@ browser_compatibility: api.2dcontextlost
 
 ## Description
 
-The 2d Rendering context losses may be intended by the user agent (to resolve
-resource contention), or may be forced by external factors (e.g. a graphics
-driver reset). In both scenarios, this event will be triggered after the 
-2dRenderingContext has been lost. 
+The `contextRestored` event is a javascript event that is triggered when the user agent detects
+that the context associated with 'CanvasRenderingContext2D' on the page is "lost". Contexts can
+be lost for several reasons, such as a driver crashes, the application runs out of memory, etc.
 
 ## Examples
 
@@ -25,10 +24,7 @@ canvas.addEventListener('contextlost', (event) => {
   console.log(event);
 });
 
-// Chrome allows users to force canvas context to be lost.
-window.internals.forceLoseCanvasContext(canvas, "2d");
-
-// After this rendering context 'ctx' is lost, "contextlost" is logged.
+// If this context ctx is lost, the event "contextlost" will be logged in the console.
 
 ## See also
 [webglcontextlost event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/webglcontextlost_event)
