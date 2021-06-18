@@ -329,4 +329,187 @@ result.pathname.input;
 result.inputs;
 ```
 
+### Example: Custom regular expression groups.
+
+The following example shows how a matching group can use a custom regular
+expression.
+
+```js
+const pattern = new URLPattern({ pathname: "/(foo|bar)" });
+
+// true
+pattern.test({ pathname: "/foo" });
+
+// true
+pattern.test({ pathname: "/bar" });
+
+// false
+pattern.test({ pathname: "/baz" });
+
+const result = pattern.exec({ pathname: "/foo" });
+
+// `foo`
+result.pathname.groups[0];
+```
+
+### Example: Named group with a custom regular expression.
+
+The following example shows how a custom regular expression can be used with a
+named group.
+
+```js
+const pattern = new URLPattern({ pathname: "/:type(foo|bar)" });
+const result = pattern.exec({ pathname: "/foo" });
+
+// `foo`
+result.pathname.groups.type;
+```
+
+### Example: Making matching groups optional.
+
+The following example shows how a matching group can be made optional by placing
+a `?` modifier after it.  For the pathname component this also causes any
+preceding `/` character to also be treated as an optional prefix to the group.
+
+```js
+const pattern = new URLPattern({ pathname: "/product/(index.html)?" });
+
+// true
+pattern.test({ pathname: "/product/index.html" });
+
+// true
+pattern.test({ pathname: "/product" });
+
+const pattern2 = new URLPattern({ pathname: "/product/:action?" });
+
+// true
+pattern2.test({ pathname: "/product/view" });
+
+// true
+pattern2.test({ pathname: "/product" });
+
+// Wildcards can be made optional as well.  This may not seem to make sense
+// since they already match the empty string, but it also makes the prefix
+// `/` optional in a pathname pattern.
+const pattern3 = new URLPattern({ pathname: "/product/*?" });
+
+// true
+pattern3.test({ pathname: "/product/wanderview/view" });
+
+// true
+pattern3.test({ pathname: "/product" });
+
+// true
+pattern3.test({ pathname: "/product/" });
+```
+
+### Example: Making matching groups repeated.
+
+The following example shows how a matching group can be made repeated by placing
+a `+` modifier after it.  Again, in the pathname component this also treats the
+`/` prefix as special.  It is repeated with the group.
+
+```js
+const pattern = new URLPattern({ pathname: "/product/:action+" });
+const result = pattern.exec({ pathname: "/product/do/some/thing/cool" });
+
+// `do/some/thing/cool`
+result.pathname.groups.action;
+
+// false
+pattern.test({ pathname: "/product" });
+```
+
+### Example: Making matching groups optional and repeated.
+
+The following example shows how a matching group can be made both optional and
+repeated.  This is done by placing a `*` modifier after the group.  Again, the
+pathname component treats the `/` prefix as special.  It both becomes optional
+and is also repeated with the group.
+
+```js
+const pattern = new URLPattern({ pathname: "/product/:action*" });
+const result = pattern.exec({ pathname: "/product/do/some/thing/cool" });
+
+// `do/some/thing/cool`
+result.pathname.groups.action;
+
+// true
+pattern.test({ pathname: "/product" });
+```
+
+### Example: Using a custom prefix or suffix for an optional or repeated modifier.
+
+The following example shows how curly braces can be used to denote a custom
+prefix and/or suffix to be operated on by a subsequent `?`, `*`, or `+`
+modifier.
+
+```js
+const pattern = new URLPattern({ hostname: "{:subdomain.}*example.com" });
+
+// true
+pattern.test({ hostname: "example.com" });
+
+// true
+pattern.test({ hostname: "foo.bar.example.com" });
+
+// false
+pattern.test({ hostname: ".example.com" });
+
+const result = pattern.exec({ hostname: "foo.bar.example.com" });
+
+// `foo.bar`
+result.hostname.groups.subdomain;
+```
+
+### Example: Making text optional or repeated without a matching group.
+
+The following example shows how curly braces can be used to denote text
+without a matching group can be made optional or repeated without a
+matching group.
+
+```js
+const pattern = new URLPattern({ pathname: "/product{/}?" });
+
+// true
+pattern.test({ pathname: "/product" });
+
+// true
+pattern.test({ pathname: "/product/" });
+
+const result = pattern.exec({ pathname: "/product/" });
+
+// empty object
+result.pathname.groups
+```
+
+### Example: Using multiple components and features at once.
+
+The following example shows how many features can be combined across multiple
+URL components.
+
+```js
+const pattern = new URLPattern({
+  protocol: "http{s}?",
+  username: ":user?",
+  password: ":pass?",
+  hostname: "{:subdomain.}*example.com",
+  pathname: "/product/:action*",
+});
+
+const result = pattern.exec("http://foo:bar@sub.example.com/product/view?q=12345");
+
+// `foo`
+result.username.groups.user;
+
+// `bar`
+result.password.groups.pass;
+
+// `sub`
+result.hostname.groups.subdomain;
+
+// `view`
+result.pathname.groups.action;
+```
+
 [path-to-regexp]: https://github.com/pillarjs/path-to-regexp
