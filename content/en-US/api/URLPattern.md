@@ -31,7 +31,17 @@ javascript library and is more ergonomic than using regular expressions.
 
 ## Constructor
 
-Creates a new `URLPattern` object.
+**`URLPattern.URLPattern()`**
+
+Creates a new `URLPattern` object. The constructor takes an initialization 
+object with the following properties:
+
+<dl>
+  <dt>protocol</dt>
+  <dd>The protocol in a URL to match.</dd>
+  <dt>username</dt>
+  <dd></dt>
+</dl>
 
 ## Properties
 
