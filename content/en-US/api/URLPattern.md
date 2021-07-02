@@ -48,10 +48,10 @@ Creates a new `URLPattern` object.  It has two forms.
 This form of the constructor takes a `URLPatternInit` dictionary object that
 describes the URLs you want to match.  Its members can be any of `protocol`,
 `username`, `password`, `hostname`, `port`, `pathname`, `search`, `hash`, or
-`baseURL`.  If the `baseURL property is provided it will be parsed as a URL
+`baseURL`.  If the `baseURL` property is provided it will be parsed as a URL
 and used to populate any other properties that are missing.  If the `baseURL`
 property is missing, then any other missing properties default to the pattern
-`*` wildcard accepting any input.
+`*` wildcard, accepting any input.
 
 **`new URLPattern(pattern, baseURL)`**
 
@@ -59,7 +59,7 @@ This form of the constructor takes a URL string that contains patterns embedded
 in it.  The URL string may be relative if a base URL is provided as the second
 argument.  Note, it may be necessary to escape some characters in the URL
 string where its ambiguous whether the character is separating different URL
-components or if its instead part of a pattern.  For example, you must write
+components or if it's instead part of a pattern.  For example, you must write
 `about\\:blank` to indicate that the `:` is the protocol suffix and not the
 start of a `:blank` named group pattern.
 
