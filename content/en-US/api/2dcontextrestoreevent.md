@@ -11,9 +11,10 @@ browser_compatibility: api.2dcontextlost
 
 ## Description
 
-The `contextRestored` event is a javascript event that is triggered when the user agent
-detects that the context associated with 'CanvasRenderingContext2D' on the page is "restored"
-after being "lost".
+The `contextrestored` `EventHandler` of [Canvas Api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+is an [`EventHandler`](https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers) that
+is triggered when the user agent "restores" the backing storage associated with
+'CanvasRenderingContext2D' on the page after being "lost".
 
 Once the context is restored, the resources such as drawings that were created before
 the context was lost are no longer valid. You need to reinitialize the state of your 
