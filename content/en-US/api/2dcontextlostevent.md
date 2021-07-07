@@ -11,8 +11,7 @@ browser_compatibility: api.2dcontextlost
 
 ## Description
 
-The `contextlost` `EventHandler` of [Canvas Api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
-is an [`EventHandler`](https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers) that
+The `contextlost` [`EventHandler`](https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers) of [Canvas Api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 is triggered when the user agent detects
 that the backing storage associated with 'CanvasRenderingContext2D' on the page is "lost". Contexts
 can be lost for several reasons, such as a driver crashes, the application runs out of memory, etc.
