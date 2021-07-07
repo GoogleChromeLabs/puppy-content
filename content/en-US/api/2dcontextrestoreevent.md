@@ -11,8 +11,7 @@ browser_compatibility: api.2dcontextlost
 
 ## Description
 
-The `contextrestored` `EventHandler` of [Canvas Api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
-is an [`EventHandler`](https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers) that
+The `contextrestored` [`EventHandler`](https://developer.mozilla.org/en-US/docs/Web/Events/Event_handlers) of [Canvas Api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 is triggered when the user agent "restores" the backing storage associated with
 'CanvasRenderingContext2D' on the page after being "lost".
 
