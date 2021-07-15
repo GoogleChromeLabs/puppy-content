@@ -18,8 +18,6 @@ current sub-path.
 
 ### Parameters
 <dl>
-  <dt><em>Parameter</em></dt>
-  <dd>Definition</dd>
   <dt><em>x</em></dt>
   <dd>A double that represents the x-axis (horizontal) coordinate of the rectangle's starting point.</dd>
 
@@ -39,14 +37,14 @@ current sub-path.
   to the bottom.</dd>
 
   <dt><em>radii</em></dt>
-  <dd>Each value `r` in `radii`  could be a number or an object with `{x, y}` properties. If `r` is 
-  a number, the corresponding corner(s) are drawn as a cicurlar arc with radius `r`; if `r` is an
+  <dd>Each value `r` in `radii`  could be a double or an object with `{x, y}` properties. If `r` is 
+  a double, the corresponding corner(s) are drawn as a cicurlar arc with radius `r`; if `r` is an
   object, the correspondinf corner(s) are drawn as 
   [elliptical arc](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellipse)
-  whose `radiusX` and `radiusY` are equal to `x` and `y`, respectively. `r`, `x` or `y` must be
+  whose `radiusX` and `radiusY` are equal to `x` and `y`, respectively. `r`, `x` and `y` must be
   non-negative:
 
-  * If `radii`'s size is 1, then arc created by `radii[0]` replaces all 4 corners of rectangle. 
+  * If `radii`'s size is 1, then arc created by `radii[0]` replaces all 4 corners of rectangle.
 
   * If `radii`'s size is 2, then the arc created by `radii[0]` replaces the upper left and lower
   right corners of the rectangle; the arc created by `radii[1]` replaces the upper right and lower
@@ -65,6 +63,8 @@ current sub-path.
 
   Note that if the sum of the radii of two corners of the same edge is greater than the length of
   that edge, all the `radii` of the rounded rectangle are scaled by a factor of length / (r1 + r2).
+  If multiple edges have this property, the scale factor of the edge with the smallest scale factor
+  is used.
 </dd>
 </dl>
 
@@ -104,8 +104,17 @@ document.body.appendChild(canvas);
 ctx.strokeStyle = '#0f0';
 ctx.lineWidth = 5;
 ctx.roundRect(50, 50, 120, 120, [new DOMPoint(25, 50)]);
+
 ctx.roundRect(210, 50, 120, 120, [new DOMPoint(20, 50), new DOMPoint(50, 20), new DOMPoint(20, 50), 
   new DOMPoint(50, 20)]);
+
+var DOMPointInit = {
+  x: 25,
+  y: 50
+}
+ctx.roundRect(50, 210, 120, 120, [DOMPointInit]);
+
+ctx.roundRect(210, 210, 120, 120, [new DOMPoint(20, 50), new DOMPoint(50, 20), 50, 50]);
 ctx.stroke();
 ```
 
