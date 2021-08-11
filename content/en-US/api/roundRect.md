@@ -25,21 +25,21 @@ current sub-path.
   <dd>A double that represents the y-axis (vertical) coordinate of the rectangle's starting point.</dd>
 
   <dt><em>width</em></dt>
-  <dd>A double that represents the rectangle's width. Positive value means the path is drawn
-  clockwise; and negative value meeans it's drawn counterclockwise and flips the rectangle
-  horizontally along `y`, that means the radius values that applied to the left corners are now
-  applied to the right.</dd>
+  <dd>A double that represents the rectangle's width. A positive value means the path is drawn
+  clockwise, and a negative value means it's drawn counterclockwise and flips the rectangle
+  horizontally along the `y` axis. That means the radius values that were applied to the left corners
+  are now applied to the right.</dd>
 
   <dt><em>height</em></dt>
-  <dd>A double that represents the rectangle's height. Positive value means the path is drawn
-  clockwise; and negative value meeans it's drawn counterclockwise and flips the rectangle
-  vertically along `x`, that means the radius values that applied to the top corners are now applied
+  <dd>A double that represents the rectangle's height. A positive value means the path is drawn
+  clockwise, and a negative value means it's drawn counterclockwise and flips the rectangle
+  vertically along the `x` axis. That means the radius values that applied to the top corners are now applied
   to the bottom.</dd>
 
   <dt><em>radii</em></dt>
-  <dd>Each value `r` in `radii`  could be a double or an object with `{x, y}` properties. If `r` is 
+  <dd>An array of radius `r`, and each `r` in `radii` could be a double or an object with `{x, y}` properties. If `r` is
   a double, the corresponding corner(s) are drawn as a cicurlar arc with radius `r`; if `r` is an
-  object, the correspondinf corner(s) are drawn as 
+  object, the correspondinf corner(s) are drawn as
   [elliptical arc](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/ellipse)
   whose `radiusX` and `radiusY` are equal to `x` and `y`, respectively. `r`, `x` and `y` must be
   non-negative:
@@ -73,8 +73,7 @@ current sub-path.
 
 ### Drawing roundRect with circular arc
 
-The following example draws 4 rooundRect with `raddi`'s size equals to 1, 2, 3 or 4 and `r` is in
-form of double.
+The following example draws four `roundRect` images with `raddi` sizes equal to 1, 2, 3 or 4. `r` is a double.
 
 ```js
 const canvas = document.createElement('canvas');
@@ -84,16 +83,20 @@ const ctx = canvas.getContext('2d');
 document.body.appendChild(canvas);
 ctx.strokeStyle = '#0f0';
 ctx.lineWidth = 5;
+// radii = [20] and r = 20
 ctx.roundRect(50, 50, 100, 100, [20]);
+// radii = [20, 40], r1 = 20 and r2 = 40
 ctx.roundRect(200, 50, 100, 100, [20, 40]);
+// radii = [10, 25, 40], r1 = 10, r2 = 25 and r3 = 40
 ctx.roundRect(50, 200, 100, 100, [10, 25, 40]);
+// radii = [5, 15, 30, 50], r1 = 5, r2 = 15, r3 = 30 and r4 = 50
 ctx.roundRect(200, 200, 100, 100, [5, 15, 30, 50]);
 ctx.stroke();
 ```
 
 ### Drawing roundRect with elliptical arc
 
-The following example draws rooundRect with different elliptical arc.
+The following example draws a rooundRect with a different elliptical arc.
 
 ```js
 const canvas = document.createElement('canvas');
