@@ -2,7 +2,7 @@
 
 The `CanvasRenderingContext2D` interface of the [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) provides the 2D rendering context for the drawing surface of a `<canvas>` element. It is used for drawing shapes, text, images, and other objects.
 
-You can find [existing documentation](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D) for this interface on MDN. Chrome's work on [New Canvas 2D API](https://www.chromestatus.com/feature/6051647656558592) adds the following members.
+**You can find [existing documentation](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D) for this interface on MDN. Chrome's work on [New Canvas 2D API](https://www.chromestatus.com/feature/6051647656558592) adds the following members.**
 
 ## Properties
 
