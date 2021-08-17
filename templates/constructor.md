@@ -2,12 +2,15 @@
 recipe: api-constructor
 title: '[[InterfaceName]]()'
 mdn_url: /en-US/docs/Web/API/[[InterfaceName]]/[[InterfaceName]]
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: [[specURL]]
 browser_compatibility: api.[[InterfaceName]].[[InterfaceName]]
+chrome_status_entry: https://www.chromestatus.com/feature/[[StatusEntryID]]
 ---
 
-// For newer or recently updated specs, the preferred heading anchor is one
-// beginning with 'dom'.
+// NOTE: MDN editors try to keep sentence structures consistent across reference
+// documents. This makes scanning for information easier and more predictiable.
+// Please follow the examples in this template and in the links provided. Don't get
+// creative.
 
 // Please do the following:
 // 1. Replace all [[tokens]] with the specified information. Be sure to remove
@@ -38,7 +41,10 @@ The `[[InterfaceName]]` constructor creates a new [[InterfaceName]] object which
 
 ### Parameters
 
-// Replace this section with 'None.' if this method has no arguments.
+// Replace this section with 'None.' if this method has no arguments. Use a
+// consistent grammatical structure throughout. Noun phrases (ex: "A boolean that
+// indicates...") and sentences starting with verbs are prefered. This is not a
+// school essay. Sentence fragments are the correct approach for definitions.
 
 <dl>
   // Repeat for each parameter

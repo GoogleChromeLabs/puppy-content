@@ -2,12 +2,15 @@
 recipe: api-interface
 title: '[[InterfaceName]]'
 mdn_url: /en-US/docs/Web/API/[[InterfaceName]]
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: [[specURL]]
 browser_compatibility: api.[[InterfaceName]]
+chrome_status_entry: https://www.chromestatus.com/feature/[[StatusEntryID]]
 ---
 
-// For newer or recently updated specs, the preferred heading anchor is one
-// beginning with 'dom'.
+// NOTE: MDN editors try to keep sentence structures consistent across reference
+// documents. This makes scanning for information easier and more predictiable.
+// Please follow the examples in this template and in the links provided. Don't get
+// creative.
 
 // Please do the following:
 // 1. Replace all [[tokens]] with the specified information. Be sure to remove
@@ -61,7 +64,12 @@ Called when // Describe what the event handler does.
 
 **`[[InterfaceName]].[[methodName]]()`**
 
-// Describe what the method does in a sentence fragment starting with a verb.
+// For the method description use one of the following sentence structures, as
+// appropriate. This should always be a sentence fragment starting with a verb.
+
+Returns a `Promise` that resolves with [[ResolutionType]] when // Describe what happens
+
+Returns [[SomeValue]] when/after // Describe what happens
 
 ## Examples
 

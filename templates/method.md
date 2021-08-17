@@ -2,12 +2,15 @@
 recipe: api-method
 title: '[[InterfaceName]].[[MethodName]]()'
 mdn_url: /en-US/docs/Web/API/[[InterfaceName]]/[[MethodName]]
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: [[specURL]]
 browser_compatibility: api.[[InterfaceName]].[[MethodName]]
+chrome_status_entry: https://www.chromestatus.com/feature/[[StatusEntryID]]
 ---
 
-// For newer or recently updated specs, the preferred heading anchor is one
-// beginning with 'dom'.
+// NOTE: MDN editors try to keep sentence structures consistent across reference
+// documents. This makes scanning for information easier and more predictiable.
+// Please follow the examples in this template and in the links provided. Don't get
+// creative.
 
 // Please do the following:
 // 1. Replace all [[tokens]] with the specified information. Be sure to remove
@@ -37,14 +40,15 @@ The `[[MethodName]]` method of the `[[InterfaceName]]` interface
 
 ### Parameters
 
-// Replace this section with 'None.' if this method has no arguments.
+// Replace this section with 'None.' if this method has no arguments. Use a
+// consistent grammatical structure throughout. Noun phrases (ex: "A boolean that
+// indicates...") and sentences starting with verbs are prefered. This is not a
+// school essay. Sentence fragments are the correct approach for definitions.
 
 <dl>
   // Repeat for each parameter
   <dt><em>Parameter</em></dt>
   <dd>Definition</dd>
-  // Example: 
-  // Notice that a complete sentence is not use here.
   <dt><em>Name</em></dt>
   <dd>A string identifying the item to be added.</dd>
 </dl>
@@ -59,14 +63,15 @@ Returns a Promise that resolves with [[ResolveType]].
 
 ### Exceptions
 
-// Delete this section and its heading if you do not know the exceptions thrown by this method.
+// Delete this section and its heading if no exceptions are thrown by this
+// method. Use a consistent grammatical structure throughout. Noun phrases and
+// sentences starting with verbs are prefered. This is not a school essay. Sentence
+// fragments are the correct approach for definitions.
 
 <dl>
   // Repeat for each exception
   <dt><code>ErrorName</code></dt>
   <dd>Definition</dd>
-  // Example: 
-  // Notice that a complete sentence is not use here.
   <dt><code>TypeError</code></dt>
   <dd>Thrown when invalid data is passed in the `name` argument.</dd>
 </dl>

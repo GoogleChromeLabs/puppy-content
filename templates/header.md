@@ -2,9 +2,15 @@
 recipe: header
 title: '[[HeaderName]]'
 mdn_url: /en-US/docs/Web/HTTP/Headers/[[HeaderName]]
-specifications: [[specURL]]#[[HeadingAnchor]]
+specifications: [[specURL]]
 browser_compatibility: http.headers.[[HeaderName]]
+chrome_status_entry: https://www.chromestatus.com/feature/[[StatusEntryID]]
 ---
+
+// NOTE: MDN editors try to keep sentence structures consistent across reference
+// documents. This makes scanning for information easier and more predictiable.
+// Please follow the examples in this template and in the links provided. Don't get
+// creative.
 
 // Please do the following:
 // 1. Replace all [[tokens]] with the specified information. Be sure to remove
