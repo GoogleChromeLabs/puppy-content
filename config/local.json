@@ -1,0 +1,8 @@
+{
+  "Application": {
+    "bcdCommitDirectory": "$HOME/Documents/content/bcd/",
+    "outputDirectory": "$HOME/Desktop/out/"
+  },
+  "User": {
+  }
+}
