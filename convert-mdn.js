@@ -15,7 +15,7 @@
 'use strict';
 
 // Use MDN Helper's config for now.
-process.env["NODE_CONFIG_DIR"] = `${__dirname}/node_modules/mdn-helper/config`;
+// process.env["NODE_CONFIG_DIR"] = `${__dirname}/node_modules/@jpmedley/mdn-helper/config`;
 
 const { Generator } = require('./generator.js');
 

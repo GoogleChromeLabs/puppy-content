@@ -44,32 +44,30 @@ Creates a new `[[InterfaceName]]` object.
 // Copy the next two lines as needed for all properties on the interface.
 // If there are none, delete this section.
 
-**`[[InterfaceName]].[[propertyName]]`**
-
-Returns // Describe what the property returns.
+- **`[[InterfaceName]].[[propertyName]]`**
+  - : Returns // Describe what the property returns.
 
 ## Event Handlers
 
 // Copy the next two lines as needed for all event handlers on the interface.
 // If there are none, delete this section.
 
-**`[[InterfaceName]].[[eventHandlerName]]`**
-
-Called when // Describe what the event handler does.
+-  **`[[InterfaceName]].[[eventHandlerName]]`**
+  - : Called when // Describe what the event handler does.
 
 ## Methods
 
 // Copy the next two lines as needed for all methods on the interface.
 // If there are none, delete this section.)
 
-**`[[InterfaceName]].[[methodName]]()`**
+- **`[[InterfaceName]].[[methodName]]()`**
 
 // For the method description use one of the following sentence structures, as
 // appropriate. This should always be a sentence fragment starting with a verb.
 
-Returns a `Promise` that resolves with [[ResolutionType]] when // Describe what happens
+  - : Returns a `Promise` that resolves with [[ResolutionType]] when // Describe what happens
 
-Returns [[SomeValue]] when/after // Describe what happens
+  - : Returns [[SomeValue]] when/after // Describe what happens
 
 ## Examples
 

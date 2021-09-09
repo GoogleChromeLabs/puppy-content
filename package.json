@@ -13,13 +13,15 @@
         "url": "https://github.com/GoogleChromeLabs/puppy-content/issues"
     },
     "scripts": {
-        "create": "node create.js"
+        "create": "node create.js",
+        "update-data": "node node_modules/@jpmedley/mdn-helper/app_UpdateData.js -s"
     },
     "dependencies": {
+        "@jpmedley/mdn-helper": "github:jpmedley/mdn-helper#main",
+        "@mdn/browser-compat-data": "^4.0.2",
         "commander": "^6.2.1",
         "enquirer": "^2.3.6",
         "git-promise": "^1.0.0",
-        "markdown-it": "^12.0.4",
-        "mdn-helper": "github:jpmedley/mdn-helper"
+        "markdown-it": "^12.0.4"
     }
 }

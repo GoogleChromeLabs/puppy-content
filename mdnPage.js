@@ -15,28 +15,20 @@
 'use strict';
 
 const fs = require('fs');
-const HelperUtils = require('mdn-helper/utils.js');
+const HelperUtils = require('@jpmedley/mdn-helper/utils.js');
+const { COMPAT_TABLE, SPEC_TABLE } = require('./utils.js');
 
-const LOCATIONS = ["Summary"];
-
-const SUMMARY_RE = /<p class="summary">.*$/gm
-
-const LOCATION_REGEXS = {
-  "Summary": SUMMARY_RE
-}
-
-
-class _HTMLPage {
+class _MDNPage {
   constructor(name, type) {
     this._name = name;
     this._shortName;
     this._type = type;
-    this._content = HelperUtils.getTemplate(`${type}.html`);
+    this._content = HelperUtils.getTemplate(`${type}.md`);
     this.replaceString(`[[shared:experimental]]`, '');
   }
 
   get mdnContentPath() {
-    return `${this.mdnDirPath}index.html`;
+    return `${this.mdnDirPath}index.md`;
   }
 
   get mdnDirPath() {
@@ -73,14 +65,36 @@ class _HTMLPage {
     this._content += content;
   }
 
-  inject(content, options = { location }) {
-    if (options.location) {
-      if (!LOCATIONS.includes(options.location)) {
-        const msg = 'The value of options.location is not valid.';
-        throw new TypeError(msg);
-      }
+  inject(content, options = { location, lcStart }) {
+    content = this._stripBullet(content);
+    if (options.lcStart) {
+      content = this._lowercaseStart(content);
     }
-    this._content.replace(LOCATION_REGEXS[options.location], content);
+    this.replaceString(options.location, content);
+  }
+
+  _stripBullet(text) {
+    if (text.startsWith("- : ")) {
+      text = text.split("- : ")[1].trim();
+    }
+    return text;
+  }
+
+  _lowercaseStart(text) {
+    const firstChar = text.substring(0,1);
+    const newFirstChar = firstChar.toLowerCase();
+    text = text.replace(firstChar, newFirstChar);
+    return text;
+  }
+
+  linkifyMemberNames() {
+    const MEMBERNAME_RE = /\*\*`(\w*\.\w*)`\*\*/;
+    let aMemberName = this._content.match(MEMBERNAME_RE);
+    while (aMemberName) {
+      const link = `{{domxref("${aMemberName[1]}")}}`;
+      this._content = this._content.replace(MEMBERNAME_RE, link);
+      aMemberName = this._content.match(MEMBERNAME_RE);
+    }
   }
 
   replaceString(variable, value) {
@@ -96,17 +110,17 @@ class _HTMLPage {
   }
 
   _cleanup() {
-    this.replaceString('pre><code class="language-js"', 'pre class="brush: js notranslate"');
-    this.replaceString('</code></pre>', '</pre>');
-    this.replaceString('\n\[\[see-also\]\]\n', '');
-    // Use BCD to convert IDs to links. Only first instance.
+
   }
 
   write() {
     fs.mkdirSync(this.mdnDirPath, { recursive: true });
+    this.append(`\n${SPEC_TABLE}\n`);
+    this.append(`\n${COMPAT_TABLE}\n`);
+    this.linkifyMemberNames();
     this._cleanup();
     fs.writeFileSync(this.mdnContentPath, this._content);
   }
 }
 
-module.exports.HTMLPage = _HTMLPage;
+module.exports.MDNPage = _MDNPage;

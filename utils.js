@@ -17,17 +17,15 @@
 const fs = require('fs');
 const MarkdownIt = require('markdown-it');
 
-const _COMPAT_TABLE = `<h2 id="Browser_compatibility">Browser compatibility</h2>
+const _COMPAT_TABLE = `## Browser compatibility
 
-<div class="hidden">The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out <a href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull request.</div>
+{{Compat}}`
 
-<p>{{Compat}}</p>`
+const _HEADER_MACROS = '{{securecontext_header}}{{APIRef("")}}';
 
-const _HEADER_MACROS = '<div>{{securecontext_header}}{{APIRef("")}}</div>';
+const _SPEC_TABLE = `## Specifications
 
-const _SPEC_TABLE = `<h2 id="Specifications">Specifications</h2>
-
-<p>{{Specifications}}</p>`
+{{Specifications}}`
 
 const _HOMEDIR = require('os').homedir();
 const _OUT_FOLDER = `${_HOMEDIR}/Desktop/out`;

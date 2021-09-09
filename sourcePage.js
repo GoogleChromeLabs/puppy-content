@@ -87,7 +87,7 @@ class _SourcePage {
 
   get events() {
     if (this._events) { return this._events; }
-    this._events = this._getSubSections('Events');
+    this._events = this._getSubSections('Event Handlers');
     return this._events;
   }
 
@@ -116,8 +116,11 @@ class _SourcePage {
   }
 
   _getSection(sectionName) {
+    let lcSectionName = sectionName.toLocaleLowerCase();
     let rawSection = this._sections.find(s => {
-      return s.startsWith(sectionName);
+      // return s.startsWith(sectionName);
+      let lcSection = s.toLocaleLowerCase();
+      return lcSection.startsWith(lcSectionName);
     });
     if (!rawSection) { return null; }
     let result = rawSection.split(sectionName)[1].trim();

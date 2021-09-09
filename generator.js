@@ -14,24 +14,16 @@
 
 'use strict';
 
-const MarkdownIt = require('markdown-it');
-
-const { HTMLPage } = require('./mdnPage.js');
-// const { InterfaceSet } = require('mdn-helper/interfaceset.js')
-// const { InterfaceCollection } = require('mdn-helper/interfacecollection.js');
-const { Finder } = require('mdn-helper/finder.js');
+const { MDNPage } = require('./mdnPage.js');
+const { Finder } = require('@jpmedley/mdn-helper/finder.js');
 const { SourcePage } = require('./sourcePage.js');
-const { COMPAT_TABLE, HEADER_MACROS, SPEC_TABLE } = require('./utils.js');
+const { HEADER_MACROS } = require('./utils.js');
 
 const IN = `content/en-US/api/`;
-
-const mi = MarkdownIt({ html: true, linkify: true });
 
 class _Generator {
   constructor(source) {
     this._sourcePage = new SourcePage(`${IN}${source}`);
-    // const interfaces = new InterfaceCollection();
-    // this._IDL = interfaces.findExact(this._sourcePage.title, true, true);
     const finder = new Finder(['Finder', this._sourcePage.title, '-f', '-o']);
     this._IDL = finder.findAndReturn();
     this._mdnPages = [];
@@ -66,14 +58,9 @@ class _Generator {
   _makeInterface() {
     let interfaceText = this._sourcePage.interfaceText;
     interfaceText = this.stripReaderComments(interfaceText);
-    interfaceText = mi.render(interfaceText);
     interfaceText = interfaceText.replace('---<', `---\n${HEADER_MACROS}\n\n<`);
-    const interfacePage = new HTMLPage(this._interfaceName, 'interface');
+    const interfacePage = new MDNPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
-    interfacePage.append(SPEC_TABLE);
-    interfacePage.append(COMPAT_TABLE);
-    const newLink = `#dom-${this._interfaceName.toLowerCase()}`
-    interfacePage.replaceString(`[[memberLink]]`, newLink);
     this._mdnPages.push(interfacePage);
   }
 
@@ -81,9 +68,8 @@ class _Generator {
     let constructorText = this._sourcePage.constructorText;
     if (!constructorText) { return; }
     constructorText = `<p class="summary">${constructorText}</p>`
-    constructorText = mi.render(constructorText);
-    const constructorPage = new HTMLPage(this._interfaceName, 'constructor');
-    constructorPage.inject(constructorText, 'Summary');
+    const constructorPage = new MDNPage(this._interfaceName, 'constructor');
+    constructorPage.inject(constructorText, "[[Description]]");
     const newLink = `#dom-${this._interfaceName.toLowerCase()}-constructor`;
     constructorPage.replaceString(`[[memberLink]]`, newLink);
     this._mdnPages.push(constructorPage);
@@ -92,8 +78,17 @@ class _Generator {
   _makeEvents() {
     let eventText = this._sourcePage.events;
     if (!eventText) { return; }
-    const newPages = this._renderList(eventText, 'EventHandler');
-    this._mdnPages.push(...newPages);
+    let newMDNPage;
+    const memberList = this._splitList(eventText);
+    for (let m of memberList) {
+      newMDNPage = new MDNPage(m[0], 'eventhandler');
+      let callbackName = m[0].split('.')[1];
+      let eventName = callbackName.substring(2);
+      newMDNPage.inject(eventName, { location: "[[eventName]]" });
+      newMDNPage.inject(callbackName, { location: "[[EventHandler]]" });
+      newMDNPage.inject(m[1], { location: "[[eventOccurs]]", lcStart: true });
+      this._mdnPages.push(newMDNPage);
+    }
   }
 
   _makeMethods() {
@@ -106,8 +101,24 @@ class _Generator {
   _makeProperties() {
     let propertyText = this._sourcePage.properties;
     if (!propertyText) { return; }
-    const newPages = this._renderList(propertyText, 'property');
-    this._mdnPages.push(...newPages);
+    let newMDNPage;
+    const memberList = this._splitList(propertyText);
+    for (let m of memberList) {
+      newMDNPage = new MDNPage(m[0], 'property');
+      const names = m[0].split('.');
+      let propertyName = names[1];
+      newMDNPage.inject(propertyName, { location: "[[property]]" });
+      let description = m[1];
+      if (description.includes("{{readonlyInline}}")) {
+        newMDNPage.inject(" read-only", { location: "[[readOnly]]"});
+        description = description.split("{{readonlyInline}}")[1].trim();
+      } else {
+        newMDNPage.inject("", { location: "[[readOnly]]" });
+        description = description.trim();
+      }
+      newMDNPage.inject(description, { location: "[[description]]", lcStart: true });
+      this._mdnPages.push(newMDNPage);
+    }
   }
 
   _renderList(listText, type) {
@@ -115,9 +126,8 @@ class _Generator {
     let newMDNPages = [];
     const memberList = this._splitList(listText);
     for (let m of memberList) {
-      newMDNPage = new HTMLPage(m[0], type.toLowerCase());
-      m[1] = mi.render(m[1]);
-      newMDNPage.inject(m[1], 'Summary');
+      newMDNPage = new MDNPage(m[0], type.toLowerCase());
+      newMDNPage.inject(m[1], "[[description]]");
       newMDNPage.replaceString(`[[${type}]]`, newMDNPage.shortName);
       const newLink = `#dom-${this._interfaceName.toLowerCase()}-${newMDNPage.shortName.toLowerCase()}`
       newMDNPage.replaceString(`[[memberLink]]`, newLink);
