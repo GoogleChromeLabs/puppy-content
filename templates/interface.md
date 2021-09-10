@@ -35,9 +35,9 @@ This interface requires a secure context.
 
 ## Constructor
 
-// Complete the sentence below or replace it with "None.".
-
-Creates a new `[[InterfaceName]]` object.
+- **`[[InterfaceName]].[[propertyName]]`**
+  - Creates a new `[[InterfaceName]]` object.
+// Complete the sentence above or replace it with "None.".
 
 ## Properties
 
