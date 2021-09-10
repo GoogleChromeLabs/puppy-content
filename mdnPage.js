@@ -87,7 +87,7 @@ class _MDNPage {
   }
 
   linkifyMemberNames() {
-    const MEMBERNAME_RE = /\*\*`(\w*\.\w*\(?\)?)`\*\*/;
+    const MEMBERNAME_RE = /\*\*`(\w*\.\w*)\(?\)?`\*\*/;
     let aMemberName = this._content.match(MEMBERNAME_RE);
     while (aMemberName) {
       const link = `{{domxref("${aMemberName[1]}")}}`;
