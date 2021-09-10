@@ -94,8 +94,14 @@ class _Generator {
   _makeMethods() {
     let methodText = this._sourcePage.methods;
     if (!methodText) { return; }
-    const newPages = this._renderList(methodText, 'method');
-    this._mdnPages.push(...newPages);
+    let newMDNPage;
+    const methodList = this._splitList(methodText);
+    for (let m of methodList) {
+      newMDNPage = new MDNPage(m[0], 'method');
+      newMDNPage.inject(m[1], { location: "[[description]]", lcStart: true });
+      newMDNPage.inject(m[0], { location: "[[method]]" });
+      this._mdnPages.push(newMDNPage);
+    }
   }
 
   _makeProperties() {
@@ -119,21 +125,6 @@ class _Generator {
       newMDNPage.inject(description, { location: "[[description]]", lcStart: true });
       this._mdnPages.push(newMDNPage);
     }
-  }
-
-  _renderList(listText, type) {
-    let newMDNPage;
-    let newMDNPages = [];
-    const memberList = this._splitList(listText);
-    for (let m of memberList) {
-      newMDNPage = new MDNPage(m[0], type.toLowerCase());
-      newMDNPage.inject(m[1], "[[description]]");
-      newMDNPage.replaceString(`[[${type}]]`, newMDNPage.shortName);
-      const newLink = `#dom-${this._interfaceName.toLowerCase()}-${newMDNPage.shortName.toLowerCase()}`
-      newMDNPage.replaceString(`[[memberLink]]`, newLink);
-      newMDNPages.push(newMDNPage);
-    }
-    return newMDNPages;
   }
 
   _splitList(sourceText) {
