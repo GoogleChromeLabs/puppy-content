@@ -16,7 +16,6 @@
 
 const fs = require('fs');
 const HelperUtils = require('@jpmedley/mdn-helper/utils.js');
-const { COMPAT_TABLE, SPEC_TABLE } = require('./utils.js');
 
 class _MDNPage {
   constructor(name, type) {
@@ -88,7 +87,7 @@ class _MDNPage {
   }
 
   linkifyMemberNames() {
-    const MEMBERNAME_RE = /\*\*`(\w*\.\w*)`\*\*/;
+    const MEMBERNAME_RE = /\*\*`(\w*\.\w*\(?\)?)`\*\*/;
     let aMemberName = this._content.match(MEMBERNAME_RE);
     while (aMemberName) {
       const link = `{{domxref("${aMemberName[1]}")}}`;
@@ -115,8 +114,6 @@ class _MDNPage {
 
   write() {
     fs.mkdirSync(this.mdnDirPath, { recursive: true });
-    this.append(`\n${SPEC_TABLE}\n`);
-    this.append(`\n${COMPAT_TABLE}\n`);
     this.linkifyMemberNames();
     this._cleanup();
     fs.writeFileSync(this.mdnContentPath, this._content);

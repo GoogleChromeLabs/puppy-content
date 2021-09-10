@@ -17,7 +17,7 @@
 const { MDNPage } = require('./mdnPage.js');
 const { Finder } = require('@jpmedley/mdn-helper/finder.js');
 const { SourcePage } = require('./sourcePage.js');
-const { HEADER_MACROS } = require('./utils.js');
+const { COMPAT_TABLE, HEADER_MACROS, SPEC_TABLE } = require('./utils.js');
 
 const IN = `content/en-US/api/`;
 
@@ -61,17 +61,17 @@ class _Generator {
     interfaceText = interfaceText.replace('---<', `---\n${HEADER_MACROS}\n\n<`);
     const interfacePage = new MDNPage(this._interfaceName, 'interface');
     interfacePage.replaceContent(interfaceText);
+    interfacePage.append(`\n${SPEC_TABLE}\n`);
+    interfacePage.append(`\n${COMPAT_TABLE}\n`);
     this._mdnPages.push(interfacePage);
   }
 
   _makeConstructor() {
     let constructorText = this._sourcePage.constructorText;
     if (!constructorText) { return; }
-    constructorText = `<p class="summary">${constructorText}</p>`
     const constructorPage = new MDNPage(this._interfaceName, 'constructor');
-    constructorPage.inject(constructorText, "[[Description]]");
-    const newLink = `#dom-${this._interfaceName.toLowerCase()}-constructor`;
-    constructorPage.replaceString(`[[memberLink]]`, newLink);
+    const description = this._sourcePage.description;
+    constructorPage.inject(description, { location: "[[description]]" });
     this._mdnPages.push(constructorPage);
   }
 
