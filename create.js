@@ -122,32 +122,41 @@ function makeBoilerplate(type, name) {
   let outPath;
   let templateName;
   let msg;
-  if (type === 'CSS') {
-    outPath = makeFolder(CSS_PATH);
-    templateName = TEMPLATES[type];
-    fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
-    msg = `Page Creator has created a boilerplate at ${outPath}/${name}.md.\n\n`;
-  } else if (type === 'Event') {
-    outPath = makeFolder(API_PATH);
-    templateName = TEMPLATES[type];
-    fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
-    templateName = TEMPLATES['Method'];
-    fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/on${name}.md`);
-    msg = `Page Creator has created a boilerplate for the event at ${outPath}/${name}.md\n`
-    msg += `and a boilerplate or the event callback at ${outPath}/on${name}.md.\n`;
-    msg += `If your event callback takes an existing event type, delete ${outPath}/${name}.md/\n`;
-    msg += `For each file:\n\n`;
-  } else {
-    outPath = makeFolder(API_PATH);
-    templateName = TEMPLATES[type];
-    fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
-    msg = `Page Creator has created a boilerplate at ${outPath}/${name}.md.\n\n`;
+  switch (type) {
+    case 'CSS':
+      outPath = makeFolder(CSS_PATH);
+      templateName = TEMPLATES[type];
+      fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
+      msg = `Page Creator has created a boilerplate at ${outPath}/${name}.md.\n\n`;
+      break;
+    case 'Event':
+      outPath = makeFolder(API_PATH);
+      templateName = TEMPLATES[type];
+      fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
+      templateName = TEMPLATES['Method'];
+      fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/on${name}.md`);
+      msg = `Page Creator has created a boilerplate for the event at ${outPath}/${name}.md\n`
+      msg += `and a boilerplate or the event callback at ${outPath}/on${name}.md.\n`;
+      msg += `If your event callback takes an existing event type, delete ${outPath}/${name}.md/\n`;
+      msg += `For each file:\n\n`;
+    case 'Constructor':
+      outPath = makeFolder(API_PATH);
+      templateName = TEMPLATES[type];
+      fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}${name}.md`);
+      msg = `Page Creator has created a boilerplate at ${outPath}/${name}${name}.md.\n\n`;
+      break;
+    default:
+      outPath = makeFolder(API_PATH);
+      templateName = TEMPLATES[type];
+      fs.copyFileSync(`${TEMPLATE_PATH}/${templateName}`, `${outPath}/${name}.md`);
+      msg = `Page Creator has created a boilerplate at ${outPath}/${name}.md.\n\n`;
+      break;
   }
   msg += `1. Open the file.\n`;
   msg += `2. Replace square-bracketed [[tokens]] with the specified information.\n`;
   msg += `3. Answer the questions in the file.\n`;
   msg += `4. Commit all new files to the '${branch}' branch and push them to origin.\n`;
-  msg =+ `   Be sure not to include the package-lock.json.`
+  msg += `   Be sure not to include the package-lock.json.\n`
   msg += `5. Open a browser and go to https://github.com/GoogleChromeLabs/stumptown-content.git\n`;
   msg += `6. Open a pull request against the default branch.\n\n`;
   msg += `Developer Relations will review your submission within a week and request\n`;
