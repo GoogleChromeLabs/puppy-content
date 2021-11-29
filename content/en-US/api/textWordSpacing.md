@@ -11,24 +11,24 @@ browser_compatibility: api.CanvasRenderingContext2D.textWordSpacing
 
 ## Description
 
-The `textWordSpacing` property of the `CanvasRenderingContext2D` interface
+The `wordSpacing` property of the `CanvasRenderingContext2D` interface
 returns a double that represents horizontal spacing between words.
-Setting `textWordSpacing` to postive values spreads words further apart, 
+Setting `wordSpacing` to postive values spreads words further apart,
 while negative values brings them closer together. The default value 
 is 0.
 
 ## Syntax
 
-`var textWordSpacing = CanvasRenderingContext2D.textWordSpacing`
-`CanvasRenderingContext2D.textWordSpacing = textWordSpacing`
+`var wordSpacing = CanvasRenderingContext2D.wordSpacing`
+`CanvasRenderingContext2D.wordSpacing = wordSpacing`
 
 ### Value
 
-A double representing horizontal spacing behavior between words.
+A String representing horizontal spacing behavior between words.
 
 ### Example
 
-This example demonstrates the various `textWordSpacing` property values:
+This example demonstrates the various `wordSpacing` property values:
 
 ```js
 const canvas = document.createElement('canvas');
@@ -36,13 +36,13 @@ canvas.width = 1000;
 canvas.height = 500;
 const ctx = canvas.getContext('2d');
 document.body.appendChild(canvas);
-const wordSpacings = [-7, 0, 10];
+const wordSpacings = ['-7px', '0px', '7px', '1cm', '0.2em', '-0.5mm', '1in'];
 ctx.font = '20px serif';
 
 wordSpacings.forEach(function (wordSpacing, index) {
-  ctx.textWordSpacing = wordSpacing;
+  ctx.wordSpacing = wordSpacing;
   const y = 50 + index * 50;
-  ctx.fillText('Hello World (textWordSpacing: ' + wordSpacing + ')', 20, y);
+  ctx.fillText('Hello World (wordSpacing: ' + wordSpacing + ')', 20, y);
 });
 ```
 

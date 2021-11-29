@@ -11,23 +11,23 @@ browser_compatibility: api.CanvasRenderingContext2D.textLetterSpacing
 
 ## Description
 
-The `textLetterSpacing` property of the `CanvasRenderingContext2D` interface
+The `letterSpacing` property of the `CanvasRenderingContext2D` interface
 returns a double that represents horizontal spacing between characters. 
-Setting `textLetterSpacing` to postive values spreads characters further apart, 
+Setting `letterSpacing` to postive values spreads characters further apart, 
 while negative values brings them closer together. The default value is 0.
 
 ## Syntax
 
-`var textLetterSpacing = CanvasRenderingContext2D.textLetterSpacing`
-`CanvasRenderingContext2D.textLetterSpacing = textLetterSpacing`
+`var letterSpacing = CanvasRenderingContext2D.letterSpacing`
+`CanvasRenderingContext2D.letterSpacing = letterSpacing`
 
 ### Value
 
-A `double` representing horizontal spacing behavior between characters.
+A String representing horizontal spacing behavior between characters.
 
 ### Example
 
-This example demonstrates the various `TextLetterSpacing` property values:
+This example demonstrates the various `letterSpacing` property values:
 
 ```js
 const canvas = document.createElement('canvas');
@@ -35,13 +35,13 @@ canvas.width = 1000;
 canvas.height = 500;
 const ctx = canvas.getContext('2d');
 document.body.appendChild(canvas);
-const letterSpacings = [-2, 0, 4];
+const letterSpacings = ['-2px', '0px', '4px', '1cm', '0.2em', '-0.5mm', '1in'];
 ctx.font = '20px serif';
 
 letterSpacings.forEach(function (letterSpacing, index) {
-  ctx.textLetterSpacing = letterSpacing;
+  ctx.letterSpacing = letterSpacing;
   const y = 50 + index * 50;
-  ctx.fillText('Hello World (textLetterSpacing: ' + letterSpacing + ')', 20, y);
+  ctx.fillText('Hello World (letterSpacing: ' + letterSpacing + ')', 20, y);
 });
 ```
 
