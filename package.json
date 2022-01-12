@@ -22,6 +22,6 @@
         "commander": "^6.2.1",
         "enquirer": "^2.3.6",
         "git-promise": "^1.0.0",
-        "markdown-it": "^12.0.4"
+        "markdown-it": "^12.3.2"
     }
 }
